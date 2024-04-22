@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>방화벽 엑셀 생성</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .input-field,
+      .select-field {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+    <script>
+      function addFields() {
+        var container = document.getElementById("fieldsContainer");
+        var newFieldset = document.createElement("fieldset");
+        newFieldset.innerHTML = document.querySelector("fieldset").innerHTML;
+        container.appendChild(newFieldset);
+      }
+
+      function toggleCustomInput(select, inputId) {
+        var input = document.getElementById(inputId);
+        if (select.value === "custom") {
+          input.style.display = "block";
+        } else {
+          input.style.display = "none";
+        }
+      }
+
+      function submitForm() {
+        alert("Form submitted. Implement the submission logic as required.");
+      }
+
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>방화벽 엑셀 생성</h1>
+      <button type="button" class="button" onclick="goBack()">
+        이전 페이지로
+      </button>
+      <form onsubmit="event.preventDefault(); submitForm();">
+        <div id="fieldsContainer">
+          <fieldset>
+            <legend>설정 정보 입력</legend>
+            <label>용도:</label>
+            <select
+              class="select-field"
+              name="purpose"
+              onchange="toggleCustomInput(this, 'customPurpose')"
+            >
+              <option value="">선택</option>
+              <option value="WEB">WEB</option>
+              <option value="세션 클러스트">세션 클러스트</option>
+              <option value="서버접근">서버접근</option>
+              <option value="DB">DB</option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customPurpose"
+              class="input-field hidden"
+              placeholder="용도 직접 입력"
+            />
+
+            <label>서비스명:</label>
+            <select
+              class="select-field"
+              name="serviceName"
+              onchange="toggleCustomInput(this, 'customServiceName')"
+            >
+              <option value="">선택</option>
+              <option value="WEB">WEB</option>
+              <option value="WAS">WAS</option>
+              <option value="Telnet">Telnet</option>
+              <option value="FTP">FTP</option>
+              <option value="sFTP">sFTP</option>
+              <option value="DBMS">DBMS</option>
+              <option value="WEB/WAS-DB통신">WEB/WAS-DB통신</option>
+              <option value="DB(Active-StandBy 통신)">
+                DB(Active-StandBy 통신)
+              </option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customServiceName"
+              class="input-field hidden"
+              placeholder="서비스명 직접 입력"
+            />
+
+            <label>출발지 장비명:</label>
+            <select
+              class="select-field"
+              name="sourceDeviceName"
+              onchange="toggleCustomInput(this, 'customSourceDeviceName')"
+            >
+              <option value="">선택</option>
+              <option value="사용자PC">사용자PC</option>
+              <option value="WAS">WAS</option>
+              <option value="DB(Active)">DB(Active)</option>
+              <option value="DB(Stand-by)">DB(Stand-by)</option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customSourceDeviceName"
+              class="input-field hidden"
+              placeholder="출발지 장비명 직접 입력"
+            />
+
+            <label>출발지 IP:</label>
+            <input type="text" class="input-field" name="sourceIP" />
+
+            <label>서비스 포트:</label>
+            <input type="number" class="input-field" name="servicePort" />
+
+            <label>목적지 장비명:</label>
+            <select
+              class="select-field"
+              name="destinationDeviceName"
+              onchange="toggleCustomInput(this, 'customDestinationDeviceName')"
+            >
+              <option value="">선택</option>
+              <option value="사용자PC">사용자PC</option>
+              <option value="WAS">WAS</option>
+              <option value="DB(Active)">DB(Active)</option>
+              <option value="DB(Stand-by)">DB(Stand-by)</option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customDestinationDeviceName"
+              class="input-field hidden"
+              placeholder="목적지 장비명 직접 입력"
+            />
+
+            <label>목적지 IP:</label>
+            <input type="text" class="input-field" name="destinationIP" />
+
+            <label>비고:</label>
+            <input type="text" class="input-field" name="remarks" />
+          </fieldset>
+        </div>
+        <button type="button" class="button" onclick="addFields()">
+          행 추가
+        </button>
+        <button type="submit" class="button">엑셀 생성</button>
+      </form>
+    </div>
+  </body>
+</html>
