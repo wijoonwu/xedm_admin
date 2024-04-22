@@ -65,6 +65,7 @@ h1 {
 }
 
 .form-section input[type="date"],
+.form-section input[type="file"],
 /* 모든 인풋 필드와 버튼을 동일한 크기로 만들기 위한 설정 */
 .form-section input[type="text"],
 .form-section input[type="number"],
