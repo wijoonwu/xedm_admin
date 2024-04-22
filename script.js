@@ -5,8 +5,8 @@ document.getElementById("serverCount").addEventListener("change", function() {
 
     if (count === 1) {
         serverDetails.innerHTML +=
-            '<div class="flex-row"><label><span class="required"> WAS IP </span><input class="input-field" type="text" name="wasIP"></label>' +
-            '<label><span class="required"> WAS PORT </span><input class="input-field" type="number" name="wasPort"></label></div>';
+            '<div class="flex-row"><label><span class="required"> WAS #1 IP </span><input class="input-field" type="text" name="wasIP"></label>' +
+            '<label><span class="required"> WAS #1 PORT </span><input class="input-field" type="number" name="wasPort"></label></div>';
     } else {
         serverDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span><input class="input-field" type="text" name="lbIP"></label>' +
@@ -48,8 +48,8 @@ document.getElementById("dbCount").addEventListener("change", function() {
     dbDetails.innerHTML = "";
     if (count === 1) {
         dbDetails.innerHTML +=
-            '<div class="flex-row"><label><span class="required"> DB IP </span> <input class="input-field" type="text" name="dbIP"></label><label><span class="required">' +
-            'DB PORT </span><input class="input-field" type="number" name="dbPort"></label></div>';
+            '<div class="flex-row"><label><span class="required"> DB #1 IP </span> <input class="input-field" type="text" name="dbIP"></label><label><span class="required">' +
+            'DB #1 PORT </span><input class="input-field" type="number" name="dbPort"></label></div>';
     } else {
         dbDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span> <input class="input-field" type="text" name="dbLbIP"></label>' +
@@ -62,14 +62,15 @@ document.getElementById("dbCount").addEventListener("change", function() {
             '<option value="active-active-standby">active-active-standby</option>' +
             '<option value="multi-active">multi-active</option>' +
             '</select></label>';
-    }
-    for (let i = 1; i <= count; i++) {
-        dbDetails.innerHTML +=
-            `<div class="flex-row"><label><span class="required">DB #${i} IP </span> <input class="input-field" type="text" name="dbIP${i}"></label>` +
-            `<label><span class="required"> DB #${i} Port </span> <input class="input-field" type="number" name="dbPort${i}"></label>` +
-            `<label><span>서버 유형</span><select class="input-field" name="dbType${i}">` +
-            `<option value="active">active</option>` +
-            `<option value="standby">standby</option></select></label></div>`;
+
+        for (let i = 1; i <= count; i++) {
+            dbDetails.innerHTML +=
+                `<div class="flex-row"><label><span class="required">DB #${i} IP </span> <input class="input-field" type="text" name="dbIP${i}"></label>` +
+                `<label><span class="required"> DB #${i} Port </span> <input class="input-field" type="number" name="dbPort${i}"></label>` +
+                `<label><span>서버 유형</span><select class="input-field" name="dbType${i}">` +
+                `<option value="active">active</option>` +
+                `<option value="standby">standby</option></select></label></div>`;
+        }
     }
 });
 
