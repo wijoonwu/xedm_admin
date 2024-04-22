@@ -8,8 +8,8 @@ document.getElementById("serverCount").addEventListener("change", function () {
       'WAS PORT </span> <input class="input-field" type="text" name="wasPort"></label></div>';
   } else {
     serverDetails.innerHTML +=
-      '<div class="flex-row"><label><span class="required"> LB IP </span> <input class="input-field" type="text" name="lbIP"></label>' +
-      '<label><span class="required"> LB PORT </span>  <input class="input-field" type="text" name="lbPort"></label></div>';
+      '<div class="flex-row"><label><span class="required"> LB IP </span> <input class="input-field" type="text" name="wasLbIP"></label>' +
+      '<label><span class="required"> LB PORT </span>  <input class="input-field" type="text" name="wasLbPort"></label></div>';
     for (let i = 1; i <= count; i++) {
       serverDetails.innerHTML +=
         `<div class="flex-row"><label><span class="required"> WAS #${i} IP   </span>  <input class="input-field" type="text" name="wasIP${i}"></label>` +
@@ -22,10 +22,19 @@ document.getElementById("dbCount").addEventListener("change", function () {
   const count = parseInt(this.value);
   const dbDetails = document.getElementById("dbDetails");
   dbDetails.innerHTML = "";
-  for (let i = 1; i <= count; i++) {
+  if (count === 1) {
     dbDetails.innerHTML +=
-      `<div class="flex-row"><label><span class="required">DB #${i} IP </span>  <input class="input-field"type="text" name="dbIP${i}"></label>` +
-      `<label><span class="required"> DB #${i} Port  </span>  <input class="input-field"type="text" name="dbPort${i}"></label></div>`;
+      '<div class="flex-row"><label><span class="required"> DB IP </span> <input class="input-field" type="text" name="dbIP"></label><label><span class="required">' +
+      'DB PORT </span><input class="input-field" type="text" name="dbPort"></label></div>';
+  } else {
+    dbDetails.innerHTML +=
+      '<div class="flex-row"><label><span class="required"> LB IP </span> <input class="input-field" type="text" name="dbLbIP"></label>' +
+      '<label><span class="required"> LB PORT </span>  <input class="input-field" type="text" name="dbLbPort"></label></div>';
+    for (let i = 1; i <= count; i++) {
+      dbDetails.innerHTML +=
+        `<div class="flex-row"><label><span class="required">DB #${i} IP </span>  <input class="input-field"type="text" name="dbIP${i}"></label>` +
+        `<label><span class="required"> DB #${i} Port  </span>  <input class="input-field"type="text" name="dbPort${i}"></label></div>`;
+    }
   }
 });
 
