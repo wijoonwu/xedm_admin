@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script>
+      function goMain() {
+        window.location.href = "main.html";
+      }
+      function goFirewall() {
+        window.location.href = "firewall-setup.html";
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <title>XEDM 프로젝트 생성</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .input-field,
+      .select-field {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+    </style>
+
+    <button type="button" class="button" onclick="goMain()">메인 페이지</button>
+
+    <button type="button" class="button" onclick="goFirewall()">
+      방화벽 엑셀 생성
+    </button>
+  </head>
+  <body>
+    <div class="container">
+      <h1>XEDM 프로젝트 생성</h1>
+      <form>
+        <label for="projectName">프로젝트 이름:</label>
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          class="input-field"
+          required
+        />
+
+        <label for="wasType">WAS 종류:</label>
+        <select id="wasType" name="wasType" class="select-field">
+          <option value="">선택</option>
+          <option value="jeus">JEUS</option>
+          <option value="tomcat">Tomcat</option>
+        </select>
+
+        <label for="wasPort">WAS 포트:</label>
+        <input
+          type="number"
+          id="wasPort"
+          name="wasPort"
+          class="input-field"
+          required
+        />
+
+        <label for="wasPath">WAS 경로:</label>
+        <input
+          type="text"
+          id="wasPath"
+          name="wasPath"
+          class="input-field"
+          placeholder="미입력 시 ~/xedm/ 경로에 생성 됩니다."
+        />
+
+        <label for="logPath">로그 경로:</label>
+        <input
+          type="text"
+          id="logPath"
+          name="logPath"
+          class="input-field"
+          placeholder="미입력 시 : /xedm/logs/ 경로에 생성 됩니다."
+        />
+
+        <label for="dbmsType">DBMS 종류:</label>
+        <select id="dbmsType" name="dbmsType" class="select-field">
+          <option value="">선택</option>
+          <option value="oracle">Oracle</option>
+          <option value="postgresql">PostgreSQL</option>
+        </select>
+
+        <label for="dbUrl">DB URL:</label>
+        <input
+          type="text"
+          id="dbUrl"
+          name="dbUrl"
+          class="input-field"
+          required
+        />
+
+        <label for="dbUrl">DB PORT:</label>
+        <input
+          type="text"
+          id="dbPort"
+          name="dbPort"
+          class="input-field"
+          required
+        />
+        <label for="dbUsername">DB 사용자명:</label>
+        <input
+          type="text"
+          id="dbUsername"
+          name="dbUsername"
+          class="input-field"
+          required
+        />
+
+        <label for="dbPwd">DB 비밀번호:</label>
+        <input
+          type="password"
+          id="dbPwd"
+          name="dbPwd"
+          class="input-field"
+          required
+        />
+        <label for="dbPwd">DB 암호화 KEY</label>
+        <input
+          type="text"
+          id="dbEncYn"
+          name="dbEncYn"
+          class="input-field"
+          placeholder="미입력 시 암호화 미사용"
+        />
+
+        <label for="tempPath">임시 경로:</label>
+        <input
+          type="text"
+          id="tempPath"
+          name="tempPath"
+          class="input-field"
+          placeholder="미입력 시 ~/xedm/temp/ 경로에 생성 됩니다."
+        />
+
+        <button type="submit" class="button">XEDM 프로젝트 생성</button>
+      </form>
+    </div>
+  </body>
+</html>
