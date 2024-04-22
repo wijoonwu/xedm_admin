@@ -66,6 +66,7 @@ h1 {
 }
 
 .form-section input[type="date"],
+.form-section textarea,
 .form-section input[type="file"],
 /* 모든 인풋 필드와 버튼을 동일한 크기로 만들기 위한 설정 */
 .form-section input[type="text"],
@@ -171,4 +172,7 @@ form button:not(.button) {
   margin-right: 0; /* 마지막 라벨은 오른쪽 마진을 제거 */
 }
 
-/* 기존 스타일 유지... */
+textarea {
+  resize: none;
+  height: 7em;
+}
