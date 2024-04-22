@@ -73,7 +73,7 @@
       }
 
       function submitForm() {
-        alert("Form submitted. Implement the submission logic as required.");
+        alert("엑셀 파일 생성");
       }
 
       function goMain() {
@@ -197,12 +197,19 @@
 
             <label>비고:</label>
             <input type="text" class="input-field" name="remarks" />
+
+            <button type="button" class="button" onclick="addFields()">
+              추가
+            </button>
           </fieldset>
         </div>
-        <button type="button" class="button" onclick="addFields()">
-          행 추가
+        <button
+          type="submit"
+          class="button"
+          style="background-color: orangered"
+        >
+          엑셀 생성
         </button>
-        <button type="submit" class="button">엑셀 생성</button>
       </form>
     </div>
   </body>
