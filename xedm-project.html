@@ -13,7 +13,7 @@
       <section class="form-section">
         <h2>프로젝트 기본 정보</h2>
         <label
-          ><span>프로젝트 이름 </span>
+          ><span class="required">프로젝트 이름 </span>
           <input class="input-field" type="text" name="projectName" /><button
             class="button"
             type="button"
@@ -42,13 +42,18 @@
           ><span> 프로젝트 위치</span>
           <input class="input-field" type="text" name="location"
         /></label>
+
+        <label
+          ><span> 특이사항 및 비고</span>
+          <input class="input-field" type="text" name="remarks"
+        /></label>
       </section>
 
       <!-- 인프라 정보 섹션 -->
       <section class="form-section">
         <h2>인프라 정보</h2>
         <label
-          ><span> 서버 갯수</span>
+          ><span class="required"> 서버 갯수</span>
           <input
             class="input-field"
             type="number"
@@ -63,7 +68,31 @@
       <section class="form-section">
         <h2>DB 정보</h2>
         <label
-          ><span> DB 갯수</span>
+          ><span class="required"> DBMS</span>
+          <select id="dbmsType" name="dbmsType" class="select-field">
+            <option value="">선택</option>
+            <option value="oracle">Oracle</option>
+            <option value="postgresql">PostgreSQL</option>
+            <option value="experdb">Experdb</option>
+          </select> </label
+        ><label
+          ><span class="required"> DB NAME </span>
+          <input class="input-field" type="text" name="dbname"
+        /></label>
+        <label
+          ><span class="required"> Username</span>
+          <input class="input-field" type="text" name="dbUsername"
+        /></label>
+        <label
+          ><span class="required"> Password</span>
+          <input class="input-field" type="text" name="dbPwd"
+        /></label>
+        <label
+          ><span> 암호화 KEY </span>
+          <input class="input-field" type="text" name="dbEncKey"
+        /></label>
+        <label
+          ><span class="required"> DB 갯수</span>
           <input
             class="input-field"
             type="number"
@@ -78,7 +107,7 @@
       <section class="form-section">
         <h2>개발자 PC 정보</h2>
         <label
-          ><span> PC 갯수</span>
+          ><span class="required"> PC 갯수</span>
           <input
             class="input-field"
             type="number"
@@ -93,7 +122,7 @@
       <section class="form-section">
         <h2>XEDM 설정 정보</h2>
         <label
-          ><span> 버전 정보</span>
+          ><span class="required"> 버전 정보</span>
           <input class="input-field" type="text" name="xedmVersion"
         /></label>
         <label
@@ -108,12 +137,28 @@
           </select></label
         >
         <label
-          ><span> 로그 경로</span>
-          <input class="input-field" type="text" name="logPath"
+          ><span class="required"> 로그 경로</span>
+          <input
+            class="input-field"
+            type="text"
+            name="logPath"
+            value="~/xedm/logs/"
         /></label>
         <label
-          ><span> 설치 경로</span>
-          <input class="input-field" type="text" name="installPath"
+          ><span class="required"> 설치 경로</span>
+          <input
+            class="input-field"
+            type="text"
+            name="installPath"
+            value="~/xedm/"
+        /></label>
+        <label
+          ><span class="required"> TEMP 경로</span>
+          <input
+            class="input-field"
+            type="text"
+            name="tempPath"
+            value="~/xedm/temp/"
         /></label>
       </section>
 
