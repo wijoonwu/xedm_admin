@@ -2,71 +2,103 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>프로젝트 정보 입력 페이지</title>
+    <title>INZENT XEDM ADMIN</title>
 
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>프로젝트 정보 입력</h1>
+    <h1>XEDM 프로젝트 관리</h1>
     <form id="projectInfo">
       <!-- 프로젝트 정보 섹션 -->
-      <section>
-        <h2>프로젝트 정보</h2>
+      <section class="form-section">
+        <h2>프로젝트 기본 정보</h2>
         <label
-          ><span>프로젝트 이름:</span>
-          <input type="text" name="projectName" /><button
+          >프로젝트 이름:
+          <input class="input-field" type="text" name="projectName" /><button
+            class="button"
             type="button"
             onclick="checkName()"
           >
             중복 확인
-          </button></label
-        >
+          </button>
+        </label>
         <label
-          >인젠트 영업담당자 이름: <input type="text" name="salesAgentName"
+          >인젠트 영업담당자:
+          <input class="input-field" type="text" name="salesAgentName"
         /></label>
         <label
-          >인젠트 기술 담당자 이름: <input type="text" name="techAgentName"
+          >인젠트 기술 담당자:
+          <input class="input-field" type="text" name="techAgentName"
         /></label>
-        <label>업체 담당자 이름: <input type="text" name="vendorName" /></label>
         <label
-          >업체 담당자 연락처: <input type="text" name="vendorContact"
+          >업체 담당자 이름:
+          <input class="input-field" type="text" name="vendorName"
         /></label>
-        <label>장소: <input type="text" name="location" /></label>
+        <label
+          >업체 담당자 연락처:
+          <input class="input-field" type="text" name="vendorContact"
+        /></label>
+        <label
+          >프로젝트 위치:
+          <input class="input-field" type="text" name="location"
+        /></label>
       </section>
 
       <!-- 인프라 정보 섹션 -->
-      <section>
+      <section class="form-section">
         <h2>인프라 정보</h2>
         <label
           >서버 갯수:
-          <input type="number" id="serverCount" name="serverCount" min="1"
+          <input
+            class="input-field"
+            type="number"
+            id="serverCount"
+            name="serverCount"
+            min="1"
         /></label>
         <div id="serverDetails"></div>
       </section>
 
       <!-- DB 정보 섹션 -->
-      <section>
+      <section class="form-section">
         <h2>DB 정보</h2>
         <label
-          >DB 갯수: <input type="number" id="dbCount" name="dbCount" min="1"
+          >DB 갯수:
+          <input
+            class="input-field"
+            type="number"
+            id="dbCount"
+            name="dbCount"
+            min="1"
         /></label>
         <div id="dbDetails"></div>
       </section>
 
       <!-- 개발자 PC 정보 섹션 -->
-      <section>
+      <section class="form-section">
         <h2>개발자 PC 정보</h2>
         <label
-          >PC 갯수: <input type="number" id="pcCount" name="pcCount" min="1"
+          >PC 갯수:
+          <input
+            class="input-field"
+            type="number"
+            id="pcCount"
+            name="pcCount"
+            min="1"
         /></label>
         <div id="pcDetails"></div>
       </section>
 
       <!-- XEDM 설정 정보 섹션 -->
-      <section>
+      <section class="form-section">
         <h2>XEDM 설정 정보</h2>
-        <label>버전 정보: <input type="text" name="xedmVersion" /></label>
-        <label>릴리즈 일자: <input type="date" name="releaseDate" /></label>
+        <label
+          >버전 정보: <input class="input-field" type="text" name="xedmVersion"
+        /></label>
+        <label
+          >릴리즈 일자:
+          <input class="input-field" type="date" name="releaseDate"
+        /></label>
         <label
           >정책 종류:
           <select name="policyType">
@@ -74,17 +106,23 @@
             <option value="controlled">통제</option>
           </select></label
         >
-        <label>로그 경로: <input type="text" name="logPath" /></label>
-        <label>설치 경로: <input type="text" name="installPath" /></label>
+        <label
+          >로그 경로: <input class="input-field" type="text" name="logPath"
+        /></label>
+        <label
+          >설치 경로: <input class="input-field" type="text" name="installPath"
+        /></label>
       </section>
 
       <!-- 버튼 -->
-      <button type="button" onclick="saveData()">저장</button>
-      <button type="button" onclick="createFirewallExcel()">
+      <button class="button" type="button" onclick="saveData()">저장</button>
+      <button class="button" type="button" onclick="createFirewallExcel()">
         방화벽 엑셀 생성
       </button>
-      <button type="button" onclick="downloadXEDM()">XEDM 다운로드</button>
-      <button type="button" onclick="modifyData()">수정</button>
+      <button class="button" type="button" onclick="downloadXEDM()">
+        XEDM 다운로드
+      </button>
+      <button class="button" type="button" onclick="modifyData()">수정</button>
     </form>
 
     <script src="script.js"></script>
