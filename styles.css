@@ -135,11 +135,6 @@ form button:not(.button) {
   margin-right: 10px; /* 버튼 간의 마진 추가 */
 }
 
-/* 기본 버튼 호버 스타일 */
-form button:not(.button):hover {
-  background-color: #e6e6e6; /* 호버 시 배경 색상 */
-}
-
 /* 하단 버튼 그룹 스타일링 - 기본 버튼 사이의 마진을 제거 */
 .form-section > button:not(.button) {
   margin-right: 0;
