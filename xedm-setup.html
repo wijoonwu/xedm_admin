@@ -56,6 +56,9 @@
       function goFirewall() {
         window.location.href = "firewall-setup.html";
       }
+      function goFirewallCheck() {
+        window.location.href = "firewall-check.html";
+      }
       function toggleCustomInput(select, inputId) {
         var input = document.getElementById(inputId);
         if (select.value === "custom") {
@@ -72,6 +75,10 @@
 
     <button type="button" class="button" onclick="goFirewall()">
       방화벽 엑셀 생성
+    </button>
+
+    <button type="button" class="button" onclick="goFirewallCheck()">
+      방화벽 확인 프로그램 생성
     </button>
   </head>
   <body>
