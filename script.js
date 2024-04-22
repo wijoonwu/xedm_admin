@@ -42,7 +42,6 @@ document.getElementById("serverCount").addEventListener("change", function() {
         document.getElementById("sessionClustering").dispatchEvent(new Event("change"));
     }
 });
-
 document.getElementById("dbCount").addEventListener("change", function() {
     const count = parseInt(this.value);
     const dbDetails = document.getElementById("dbDetails");
@@ -54,14 +53,26 @@ document.getElementById("dbCount").addEventListener("change", function() {
     } else {
         dbDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span> <input class="input-field" type="text" name="dbLbIP"></label>' +
-            '<label><span class="required"> LB PORT </span>  <input class="input-field" type="number" name="dbLbPort"></label></div>';
-        for (let i = 1; i <= count; i++) {
-            dbDetails.innerHTML +=
-                `<div class="flex-row"><label><span class="required">DB #${i} IP </span>  <input class="input-field"type="text" name="dbIP${i}"></label>` +
-                `<label><span class="required"> DB #${i} Port  </span>  <input class="input-field"type="number" name="dbPort${i}"></label></div>`;
-        }
+            '<label><span class="required"> LB PORT </span> <input class="input-field" type="number" name="dbLbPort"></label></div>';
+        dbDetails.innerHTML +=
+            '<label><span class="required"> 구성 유형 </span>' +
+            '<select class="input-field" name="dbConfig">' +
+            '<option value="active-standby">active-standby</option>' +
+            '<option value="active-active">active-active</option>' +
+            '<option value="active-active-standby">active-active-standby</option>' +
+            '<option value="multi-active">multi-active</option>' +
+            '</select></label>';
+    }
+    for (let i = 1; i <= count; i++) {
+        dbDetails.innerHTML +=
+            `<div class="flex-row"><label><span class="required">DB #${i} IP </span> <input class="input-field" type="text" name="dbIP${i}"></label>` +
+            `<label><span class="required"> DB #${i} Port </span> <input class="input-field" type="number" name="dbPort${i}"></label>` +
+            `<label><span>서버 유형</span><select class="input-field" name="dbType${i}">` +
+            `<option value="active">active</option>` +
+            `<option value="standby">standby</option></select></label></div>`;
     }
 });
+
 
 document.getElementById("pcCount").addEventListener("change", function() {
     const count = parseInt(this.value);
