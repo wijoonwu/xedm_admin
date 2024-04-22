@@ -10,6 +10,13 @@
       xedm 프로젝트 생성
     </button>
     <style>
+      /* 필수 필드 라벨 스타일링 */
+      .required::before {
+        content: "*";
+        color: red;
+        margin-right: 3px; /* 라벨과 별표 사이의 간격 */
+      }
+
       body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
@@ -81,7 +88,7 @@
     <div class="container">
       <h1>방화벽 엑셀 생성</h1>
       <form onsubmit="event.preventDefault(); submitForm();">
-        <label for="projectName">프로젝트 이름:</label>
+        <label for="projectName" class="required">프로젝트 이름:</label>
         <input
           type="text"
           id="projectName"
@@ -93,7 +100,7 @@
         <div id="fieldsContainer">
           <fieldset>
             <legend>설정 정보 입력</legend>
-            <label>용도:</label>
+            <label class="required">용도:</label>
             <select
               class="select-field"
               name="purpose"
@@ -113,7 +120,7 @@
               placeholder="용도 직접 입력"
             />
 
-            <label>서비스명:</label>
+            <label class="required">서비스명:</label>
             <select
               class="select-field"
               name="serviceName"
@@ -139,7 +146,7 @@
               placeholder="서비스명 직접 입력"
             />
 
-            <label>출발지 장비명:</label>
+            <label class="required">출발지 장비명:</label>
             <select
               class="select-field"
               name="sourceDeviceName"
@@ -159,13 +166,13 @@
               placeholder="출발지 장비명 직접 입력"
             />
 
-            <label>출발지 IP:</label>
+            <label class="required">출발지 IP:</label>
             <input type="text" class="input-field" name="sourceIP" />
 
-            <label>서비스 포트:</label>
+            <label class="required">서비스 포트:</label>
             <input type="number" class="input-field" name="servicePort" />
 
-            <label>목적지 장비명:</label>
+            <label class="required">목적지 장비명:</label>
             <select
               class="select-field"
               name="destinationDeviceName"
@@ -185,7 +192,7 @@
               placeholder="목적지 장비명 직접 입력"
             />
 
-            <label>목적지 IP:</label>
+            <label class="required">목적지 IP:</label>
             <input type="text" class="input-field" name="destinationIP" />
 
             <label>비고:</label>
