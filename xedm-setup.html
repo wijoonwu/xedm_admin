@@ -12,6 +12,13 @@
     <meta charset="UTF-8" />
     <title>XEDM 프로젝트 생성</title>
     <style>
+      /* 필수 필드 라벨 스타일링 */
+      .required::before {
+        content: "*";
+        color: red;
+        margin-right: 3px; /* 라벨과 별표 사이의 간격 */
+      }
+
       body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
@@ -58,7 +65,7 @@
     <div class="container">
       <h1>XEDM 프로젝트 생성</h1>
       <form>
-        <label for="projectName">프로젝트 이름:</label>
+        <label for="projectName" class="required">프로젝트 이름:</label>
         <input
           type="text"
           id="projectName"
@@ -67,14 +74,14 @@
           required
         />
 
-        <label for="wasType">WAS 종류:</label>
+        <label for="wasType" class="required">WAS 종류:</label>
         <select id="wasType" name="wasType" class="select-field">
           <option value="">선택</option>
           <option value="jeus">JEUS</option>
           <option value="tomcat">Tomcat</option>
         </select>
 
-        <label for="wasPort">WAS 포트:</label>
+        <label for="wasPort" class="required">WAS 포트:</label>
         <input
           type="number"
           id="wasPort"
@@ -101,14 +108,22 @@
           placeholder="미입력 시 : /xedm/logs/ 경로에 생성 됩니다."
         />
 
-        <label for="dbmsType">DBMS 종류:</label>
+        <label for="tempPath">임시 경로:</label>
+        <input
+          type="text"
+          id="tempPath"
+          name="tempPath"
+          class="input-field"
+          placeholder="미입력 시 ~/xedm/temp/ 경로에 생성 됩니다."
+        />
+        <label for="dbmsType" class="required">DBMS 종류:</label>
         <select id="dbmsType" name="dbmsType" class="select-field">
           <option value="">선택</option>
           <option value="oracle">Oracle</option>
           <option value="postgresql">PostgreSQL</option>
         </select>
 
-        <label for="dbUrl">DB URL:</label>
+        <label for="dbUrl" class="required">DB URL:</label>
         <input
           type="text"
           id="dbUrl"
@@ -117,7 +132,7 @@
           required
         />
 
-        <label for="dbUrl">DB PORT:</label>
+        <label for="dbUrl" class="required">DB PORT:</label>
         <input
           type="text"
           id="dbPort"
@@ -125,7 +140,7 @@
           class="input-field"
           required
         />
-        <label for="dbUsername">DB 사용자명:</label>
+        <label for="dbUsername" class="required">DB 사용자명:</label>
         <input
           type="text"
           id="dbUsername"
@@ -134,30 +149,21 @@
           required
         />
 
-        <label for="dbPwd">DB 비밀번호:</label>
+        <label for="dbPwd" class="required">DB 비밀번호:</label>
         <input
-          type="password"
+          type="text"
           id="dbPwd"
           name="dbPwd"
           class="input-field"
           required
         />
-        <label for="dbPwd">DB 암호화 KEY</label>
+        <label for="dbPwd" class="required">DB 암호화 KEY</label>
         <input
           type="text"
           id="dbEncYn"
           name="dbEncYn"
           class="input-field"
           placeholder="미입력 시 암호화 미사용"
-        />
-
-        <label for="tempPath">임시 경로:</label>
-        <input
-          type="text"
-          id="tempPath"
-          name="tempPath"
-          class="input-field"
-          placeholder="미입력 시 ~/xedm/temp/ 경로에 생성 됩니다."
         />
 
         <button type="submit" class="button">XEDM 프로젝트 생성</button>
