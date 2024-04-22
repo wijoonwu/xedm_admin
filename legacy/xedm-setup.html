@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XEDM 프로젝트 생성</title>
+    <style>
+      /* 필수 필드 라벨 스타일링 */
+      .required::before {
+        content: "*";
+        color: red;
+        margin-right: 3px; /* 라벨과 별표 사이의 간격 */
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .input-field,
+      .select-field {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+    <script>
+      function goMain() {
+        window.location.href = "main.html";
+      }
+      function goFirewall() {
+        window.location.href = "firewall-setup.html";
+      }
+      function goFirewallCheck() {
+        window.location.href = "firewall-check.html";
+      }
+      function toggleCustomInput(select, inputId) {
+        var input = document.getElementById(inputId);
+        if (select.value === "custom") {
+          input.style.display = "block";
+          input.required = true; // 직접 입력을 선택했을 때 필수 입력으로 설정
+        } else {
+          input.style.display = "none";
+          input.required = false; // 필수 입력 요구 사항 제거
+          input.value = ""; // 입력 필드 초기화
+        }
+      }
+    </script>
+    <button type="button" class="button" onclick="goMain()">메인 페이지</button>
+
+    <button type="button" class="button" onclick="goFirewall()">
+      방화벽 엑셀 생성
+    </button>
+
+    <button type="button" class="button" onclick="goFirewallCheck()">
+      방화벽 확인 프로그램 생성
+    </button>
+  </head>
+  <body>
+    <div class="container">
+      <h1>XEDM 프로젝트 생성</h1>
+      <form>
+        <label for="projectName" class="required"><b>프로젝트 이름:</b></label>
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          class="input-field"
+          required
+        />
+
+        <label for="xedmVersion" class="required">XEDM 버전:</label>
+        <select id="xedmVersion" name="xedmVersion" class="select-field">
+          <option value="">선택</option>
+          <option value="6600">6.6.0.0</option>
+          <option value="6622">6.6.2.2</option>
+        </select>
+
+        <label for="wasType" class="required">WAS 종류:</label>
+        <select id="wasType" name="wasType" class="select-field">
+          <option value="">선택</option>
+          <option value="jeus">JEUS</option>
+          <option value="tomcat">Tomcat</option>
+        </select>
+
+        <label for="wasPort" class="required">WAS 포트:</label>
+        <input
+          type="number"
+          id="wasPort"
+          name="wasPort"
+          class="input-field"
+          required
+        />
+
+        <label for="wasPath" class="required">WAS 경로:</label>
+        <select
+          id="wasType"
+          name="wasType"
+          class="select-field"
+          onchange="toggleCustomInput(this, 'customWasPath')"
+        >
+          <option value="">선택</option>
+          <option value="default">Default 경로 (~/xedm/)</option>
+          <option value="custom">직접 입력 (절대경로)</option>
+        </select>
+        <input
+          type="text"
+          id="customWasPath"
+          class="input-field hidden"
+          placeholder="직접 입력하세요"
+        />
+
+        <label for="logPath" class="required">로그 경로:</label>
+        <select
+          id="wasType"
+          name="wasType"
+          class="select-field"
+          onchange="toggleCustomInput(this, 'customLogPath')"
+        >
+          <option value="">선택</option>
+          <option value="default">Default 경로 (~/xedm/logs/)</option>
+          <option value="custom">직접 입력 (절대경로)</option>
+        </select>
+        <input
+          type="text"
+          id="customLogPath"
+          class="input-field hidden"
+          placeholder="직접 입력하세요"
+        />
+
+        <label for="tempPath" class="required">TEMP 경로:</label>
+        <select
+          id="wasType"
+          name="wasType"
+          class="select-field"
+          onchange="toggleCustomInput(this, 'customTmpPath')"
+        >
+          <option value="">선택</option>
+          <option value="default">Default 경로 (~/xedm/temp/)</option>
+          <option value="custom">직접 입력 (절대경로)</option>
+        </select>
+        <input
+          type="text"
+          id="customTmpPath"
+          class="input-field hidden"
+          placeholder="직접 입력하세요"
+        />
+
+        <label for="dbmsType" class="required">DBMS 종류:</label>
+        <select id="dbmsType" name="dbmsType" class="select-field">
+          <option value="">선택</option>
+          <option value="oracle">Oracle</option>
+          <option value="postgresql">PostgreSQL</option>
+        </select>
+
+        <label for="dbUrl" class="required">DB URL:</label>
+        <input
+          type="text"
+          id="dbUrl"
+          name="dbUrl"
+          class="input-field"
+          required
+        />
+
+        <label for="dbUrl" class="required">DB PORT:</label>
+        <input
+          type="text"
+          id="dbPort"
+          name="dbPort"
+          class="input-field"
+          required
+        />
+        <label for="dbUsername" class="required">DB 사용자명:</label>
+        <input
+          type="text"
+          id="dbUsername"
+          name="dbUsername"
+          class="input-field"
+          required
+        />
+
+        <label for="dbPwd" class="required">DB 비밀번호:</label>
+        <input
+          type="text"
+          id="dbPwd"
+          name="dbPwd"
+          class="input-field"
+          required
+        />
+        <label for="dbEncKey">DB 암호화 KEY</label>
+        <input
+          type="text"
+          id="dbEncYn"
+          name="dbEncYn"
+          class="input-field"
+          placeholder="미입력 시 암호화 미사용"
+        />
+
+        <button
+          type="submit"
+          class="button"
+          style="background-color: orangered"
+        >
+          XEDM 프로젝트 생성
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
