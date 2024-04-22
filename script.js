@@ -6,7 +6,7 @@ document.getElementById("serverCount").addEventListener("change", function() {
     if (count === 1) {
         serverDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> WAS #1 IP </span><input class="input-field" type="text" name="wasIP"></label>' +
-            '<label><span class="required"> WAS #1 PORT </span><input class="input-field" type="number" name="wasPort"></label></div>';
+            '<label><span class="required"> WAS #1 PORT </span><input class="input-field" min="1" type="number" name="wasPort"></label></div>';
     } else {
         serverDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span><input class="input-field" type="text" name="lbIP"></label>' +
@@ -20,9 +20,9 @@ document.getElementById("serverCount").addEventListener("change", function() {
         for (let i = 1; i <= count; i++) {
             serverDetails.innerHTML +=
                 `<div class="flex-row"><label><span class="required"> WAS #${i} IP </span><input class="input-field" type="text" name="wasIP${i}"></label>` +
-                `<label><span class="required"> WAS #${i} PORT </span><input class="input-field" type="number" name="wasPort${i}"></label>` +
+                `<label><span class="required"> WAS #${i} PORT </span><input class="input-field" min="1" type="number" name="wasPort${i}"></label>` +
                 `<label><span class="required"> 세션 클러스터링 PORT </span>` +
-                `<input class="input-field" type="number" name="sessionClusteringPort${i}"></label></div>`;
+                `<input class="input-field" type="number" min="1" name="sessionClusteringPort${i}"></label></div>`;
         }
 
         // Event listener for session clustering checkbox
@@ -49,11 +49,11 @@ document.getElementById("dbCount").addEventListener("change", function() {
     if (count === 1) {
         dbDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> DB #1 IP </span> <input class="input-field" type="text" name="dbIP"></label><label><span class="required">' +
-            'DB #1 PORT </span><input class="input-field" type="number" name="dbPort"></label></div>';
+            'DB #1 PORT </span><input class="input-field" type="number" min="1" name="dbPort"></label></div>';
     } else {
         dbDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span> <input class="input-field" type="text" name="dbLbIP"></label>' +
-            '<label><span class="required"> LB PORT </span> <input class="input-field" type="number" name="dbLbPort"></label></div>';
+            '<label><span class="required"> LB PORT </span> <input class="input-field" min="1" type="number" name="dbLbPort"></label></div>';
         dbDetails.innerHTML +=
             '<label><span class="required"> 구성 유형 </span>' +
             '<select class="input-field" name="dbConfig">' +
@@ -66,7 +66,7 @@ document.getElementById("dbCount").addEventListener("change", function() {
         for (let i = 1; i <= count; i++) {
             dbDetails.innerHTML +=
                 `<div class="flex-row"><label><span class="required">DB #${i} IP </span> <input class="input-field" type="text" name="dbIP${i}"></label>` +
-                `<label><span class="required"> DB #${i} PORT </span> <input class="input-field" type="number" name="dbPort${i}"></label>` +
+                `<label><span class="required"> DB #${i} PORT </span> <input class="input-field" type="number" min="1" name="dbPort${i}"></label>` +
                 `<label><span>서버 유형</span><select class="input-field" name="dbType${i}">` +
                 `<option value="active">active</option>` +
                 `<option value="standby">standby</option></select></label></div>`;
