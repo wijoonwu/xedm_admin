@@ -85,7 +85,14 @@ document.getElementById("pcCount").addEventListener("change", function() {
 });
 
 function checkName() {
-    // 실제 프로젝트 이름 중복 확인 로직을 구현할 위치
-    alert("사용 가능한 프로젝트 이름입니다.");
-    // alert("이미 존재하는 프로젝트 입니다. 불러오시겠습니까?");
+    var projectNameInput = document.getElementsByName("projectName")[0].value;
+
+    if (projectNameInput.trim() === "") {
+        // 프로젝트 이름이 비어있는 경우
+        alert("프로젝트 이름을 입력해주세요.");
+    } else {
+        // 프로젝트 이름이 입력된 경우 중복 확인 로직 수행
+        var confirmResult = confirm("이미 등록된 프로젝트 입니다. 불러오시겠습니까?");
+        // confirmResult를 사용하여 추가적인 로직 구현 가능
+    }
 }
