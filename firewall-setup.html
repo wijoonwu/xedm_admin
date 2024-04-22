@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>방화벽 엑셀 생성</title>
+
+    <button type="button" class="button" onclick="goMain()">메인 페이지</button>
+
+    <button type="button" class="button" onclick="goXedm()">
+      xedm 프로젝트 생성
+    </button>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -63,18 +69,27 @@
         alert("Form submitted. Implement the submission logic as required.");
       }
 
-      function goBack() {
-        window.history.back();
+      function goMain() {
+        window.location.href = "main.html";
+      }
+      function goXedm() {
+        window.location.href = "xedm-setup.html";
       }
     </script>
   </head>
   <body>
     <div class="container">
       <h1>방화벽 엑셀 생성</h1>
-      <button type="button" class="button" onclick="goBack()">
-        이전 페이지로
-      </button>
       <form onsubmit="event.preventDefault(); submitForm();">
+        <label for="projectName">프로젝트 이름:</label>
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          class="input-field"
+          placeholder="프로젝트 이름 입력"
+        />
+
         <div id="fieldsContainer">
           <fieldset>
             <legend>설정 정보 입력</legend>
