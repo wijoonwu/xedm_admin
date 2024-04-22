@@ -162,30 +162,41 @@
             </select></label
           >
         </div>
-        <label
-          ><span class="required"> 로그 경로</span>
-          <input
-            class="input-field"
-            type="text"
-            name="logPath"
-            value="~/xedm/logs/"
-        /></label>
-        <label
-          ><span class="required"> 설치 경로</span>
-          <input
-            class="input-field"
-            type="text"
-            name="installPath"
-            value="~/xedm/"
-        /></label>
-        <label
-          ><span class="required"> TEMP 경로</span>
-          <input
-            class="input-field"
-            type="text"
-            name="tempPath"
-            value="~/xedm/temp/"
-        /></label>
+        <div class="flex-row">
+          <label
+            ><span class="required"> 로그 경로</span>
+            <input
+              class="input-field"
+              type="text"
+              name="logPath"
+              value="~/xedm/logs/"
+          /></label>
+          <label
+            ><span class="required"> WAS 설치 경로</span>
+            <input
+              class="input-field"
+              type="text"
+              name="installPath"
+              value="~/xedm/"
+          /></label>
+        </div>
+        <div class="flex-row">
+          <label
+            ><span class="required"> TMP 업로드 경로</span>
+            <input
+              class="input-field"
+              type="text"
+              name="tempPath"
+              value="~/xedm/temp/upload" /></label
+          ><label
+            ><span class="required"> TMP 다운로드 </span>
+            <input
+              class="input-field"
+              type="text"
+              name="tempPath"
+              value="~/xedm/temp/download"
+          /></label>
+        </div>
       </section>
 
       <!-- 버튼 -->
