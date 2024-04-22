@@ -10,7 +10,7 @@ document.getElementById("serverCount").addEventListener("change", function() {
     } else {
         serverDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span><input class="input-field" type="text" name="lbIP"></label>' +
-            '<label><span class="required"> LB PORT </span><input class="input-field" type="text" name="lbPort"></label></div>' +
+            '<label><span class="required"> LB PORT </span><input class="input-field" type="number" name="lbPort"></label></div>' +
             '<label><span class="required">세션 클러스터링</span>' +
             '<select name="sessionClustering" id="sessionClustering" class="input-field">' +
             '<option value="no">사용 안함</option>' +
@@ -21,32 +21,26 @@ document.getElementById("serverCount").addEventListener("change", function() {
             serverDetails.innerHTML +=
                 `<div class="flex-row"><label><span class="required"> WAS #${i} IP </span><input class="input-field" type="text" name="wasIP${i}"></label>` +
                 `<label><span class="required"> WAS #${i} Port </span><input class="input-field" type="number" name="wasPort${i}"></label>` +
+                `<div id="sessionPortContainer${i}" class="flex-row">` +
                 `<label><span class="required"> 세션 클러스터링 포트 #${i} </span>` +
-                `<input class="input-field" type="number" name="sessionClusteringPort${i}"></label>`;
+                `<input class="input-field" type="number" name="sessionClusteringPort${i}"></label></div>`;
         }
 
         // Event listener for session clustering checkbox
-        document
-            .getElementById("sessionClustering")
-            .addEventListener("change", function() {
-                const useClustering = this.value === "yes";
-                for (let i = 1; i <= count; i++) {
-                    const sessionPortContainer = document.getElementById(
-                        `sessionPortContainer${i}`
-                    );
-                    if (useClustering) {
-                        sessionPortInput.disabled = false; // Enable input
-
-                    } else {
-                        sessionPortInput.disabled = true; // Enable input
-                    }
+        document.getElementById("sessionClustering").addEventListener("change", function() {
+            const useClustering = this.value === "yes";
+            for (let i = 1; i <= count; i++) {
+                const sessionPortInput = document.querySelector(`[name='sessionClusteringPort${i}']`);
+                if (useClustering) {
+                    sessionPortInput.disabled = false; // Enable input
+                } else {
+                    sessionPortInput.disabled = true; // Disable input
                 }
-            });
+            }
+        });
 
         // Initialize session clustering to 'no'
-        document
-            .getElementById("sessionClustering")
-            .dispatchEvent(new Event("change"));
+        document.getElementById("sessionClustering").dispatchEvent(new Event("change"));
     }
 });
 
