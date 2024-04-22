@@ -34,6 +34,7 @@ document.getElementById("serverCount").addEventListener("change", function() {
                     sessionPortInput.disabled = false; // Enable input
                 } else {
                     sessionPortInput.disabled = true; // Disable input
+                    sessionPortInput.value = null;
                 }
             }
         });
