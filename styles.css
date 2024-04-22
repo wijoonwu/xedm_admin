@@ -56,18 +56,21 @@ h1 {
 .input-field,
 .form-section select,
 .form-section button {
-  flex-grow: 1; /* 남은 공간을 모두 채우기 */
+  /* flex-grow: 1;  */
+  /* 남은 공간을 모두 채우기 */
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-right: 10px; /* 인풋 필드와 버튼 사이의 마진 */
 }
 
+.form-section input[type="date"],
 /* 모든 인풋 필드와 버튼을 동일한 크기로 만들기 위한 설정 */
 .form-section input[type="text"],
 .form-section input[type="number"],
 .form-section select {
-  width: calc(100% - 180px); /* 라벨의 너비를 제외한 너비 */
+  width: calc(100% - 180px);
+  /* 라벨의 너비를 제외한 너비 */
 }
 
 .form-section label button {
