@@ -10,7 +10,7 @@ document.getElementById("serverCount").addEventListener("change", function() {
     } else {
         serverDetails.innerHTML +=
             '<div class="flex-row"><label><span class="required"> LB IP </span><input class="input-field" type="text" name="lbIP"></label>' +
-            '<label><span class="required"> LB PORT </span><input class="input-field" type="number" name="lbPort"></label></div>' +
+            '<label><span class="required"> LB PORT </span><input class="input-field" type="number" min="1" name="lbPort"></label></div>' +
             '<label><span class="required">세션 클러스터링</span>' +
             '<select name="sessionClustering" id="sessionClustering" class="input-field">' +
             '<option value="no">사용 안함</option>' +
