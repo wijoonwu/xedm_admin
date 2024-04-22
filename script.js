@@ -1,7 +1,7 @@
 document.getElementById("serverCount").addEventListener("change", function() {
     const count = parseInt(this.value);
     const serverDetails = document.getElementById("serverDetails");
-    serverDetails.innerHTML = ""; // Clear previous details
+    serverDetails.innerHTML = "";
 
     if (count === 1) {
         serverDetails.innerHTML +=
@@ -86,4 +86,5 @@ document.getElementById("pcCount").addEventListener("change", function() {
 function checkName() {
     // 실제 프로젝트 이름 중복 확인 로직을 구현할 위치
     alert("사용 가능한 프로젝트 이름입니다.");
+    // alert("이미 존재하는 프로젝트 입니다. 불러오시겠습니까?");
 }
