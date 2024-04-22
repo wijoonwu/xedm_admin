@@ -56,13 +56,15 @@
       function goFirewall() {
         window.location.href = "firewall-setup.html";
       }
-      function toggleCustomInput(select, customInputId) {
-        var customInput = document.getElementById(customInputId);
+      function toggleCustomInput(select, inputId) {
+        var input = document.getElementById(inputId);
         if (select.value === "custom") {
-          customInput.style.display = "block";
+          input.style.display = "block";
+          input.required = true; // 직접 입력을 선택했을 때 필수 입력으로 설정
         } else {
-          customInput.style.display = "none";
-          customInput.value = ""; // Reset the value
+          input.style.display = "none";
+          input.required = false; // 필수 입력 요구 사항 제거
+          input.value = ""; // 입력 필드 초기화
         }
       }
     </script>
