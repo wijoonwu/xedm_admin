@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>방화벽 엑셀 생성</title>
+
+    <button type="button" class="button" onclick="goMain()">메인 페이지</button>
+
+    <button type="button" class="button" onclick="goXedm()">
+      XEDM 프로젝트 생성
+    </button>
+    <button type="button" class="button" onclick="goFirewallCheck()">
+      방화벽 확인 프로그램 생성
+    </button>
+    <style>
+      /* 필수 필드 라벨 스타일링 */
+      .required::before {
+        content: "*";
+        color: red;
+        margin-right: 3px; /* 라벨과 별표 사이의 간격 */
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .input-field,
+      .select-field {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+    <script>
+      function addFields() {
+        var container = document.getElementById("fieldsContainer");
+        var newFieldset = document.createElement("fieldset");
+        newFieldset.innerHTML = document.querySelector("fieldset").innerHTML;
+        container.appendChild(newFieldset);
+      }
+
+      function toggleCustomInput(select, inputId) {
+        var input = document.getElementById(inputId);
+        if (select.value === "custom") {
+          input.style.display = "block";
+          input.required = true; // 직접 입력을 선택했을 때 필수 입력으로 설정
+        } else {
+          input.style.display = "none";
+          input.required = false; // 필수 입력 요구 사항 제거
+          input.value = ""; // 입력 필드 초기화
+        }
+      }
+
+      function submitForm() {
+        alert("엑셀 파일 생성");
+      }
+
+      function goMain() {
+        window.location.href = "main.html";
+      }
+      function goXedm() {
+        window.location.href = "xedm-setup.html";
+      }
+      function goFirewallCheck() {
+        window.location.href = "firewall-check.html";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>방화벽 엑셀 생성</h1>
+      <form onsubmit="event.preventDefault(); submitForm();">
+        <label for="projectName" class="required"><b>프로젝트 이름:</b></label>
+        <input
+          required
+          type="text"
+          id="projectName"
+          name="projectName"
+          class="input-field"
+          placeholder="프로젝트 이름 입력"
+        />
+
+        <div id="fieldsContainer">
+          <fieldset>
+            <legend><b>설정 정보 입력</b></legend>
+            <label class="required">용도:</label>
+            <select
+              required
+              class="select-field"
+              name="purpose"
+              onchange="toggleCustomInput(this, 'customPurpose')"
+            >
+              <option value="">선택</option>
+              <option value="WEB">WEB</option>
+              <option value="세션 클러스트">세션 클러스트</option>
+              <option value="서버접근">서버접근</option>
+              <option value="DB">DB</option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customPurpose"
+              class="input-field hidden"
+              placeholder="용도 직접 입력"
+            />
+
+            <label class="required">서비스명:</label>
+            <select
+              required
+              class="select-field"
+              name="serviceName"
+              onchange="toggleCustomInput(this, 'customServiceName')"
+            >
+              <option value="">선택</option>
+              <option value="WEB">WEB</option>
+              <option value="WAS">WAS</option>
+              <option value="Telnet">Telnet</option>
+              <option value="FTP">FTP</option>
+              <option value="sFTP">sFTP</option>
+              <option value="DBMS">DBMS</option>
+              <option value="WEB/WAS-DB통신">WEB/WAS-DB통신</option>
+              <option value="DB(Active-StandBy 통신)">
+                DB(Active-StandBy 통신)
+              </option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customServiceName"
+              class="input-field hidden"
+              placeholder="서비스명 직접 입력"
+            />
+
+            <label class="required">출발지 장비명:</label>
+            <select
+              required
+              class="select-field"
+              name="sourceDeviceName"
+              onchange="toggleCustomInput(this, 'customSourceDeviceName')"
+            >
+              <option value="">선택</option>
+              <option value="사용자PC">사용자PC</option>
+              <option value="WAS">WAS</option>
+              <option value="DB(Active)">DB(Active)</option>
+              <option value="DB(Stand-by)">DB(Stand-by)</option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              type="text"
+              id="customSourceDeviceName"
+              class="input-field hidden"
+              placeholder="출발지 장비명 직접 입력"
+            />
+
+            <label class="required">출발지 IP:</label>
+            <input type="text" class="input-field" name="sourceIP" required />
+
+            <label class="required">서비스 포트:</label>
+            <input
+              type="number"
+              class="input-field"
+              name="servicePort"
+              required
+            />
+
+            <label class="required">목적지 장비명:</label>
+            <select
+              required
+              class="select-field"
+              name="destinationDeviceName"
+              onchange="toggleCustomInput(this, 'customDestinationDeviceName')"
+            >
+              <option value="">선택</option>
+              <option value="사용자PC">사용자PC</option>
+              <option value="WAS">WAS</option>
+              <option value="DB(Active)">DB(Active)</option>
+              <option value="DB(Stand-by)">DB(Stand-by)</option>
+              <option value="custom">직접 입력</option>
+            </select>
+            <input
+              required
+              type="text"
+              id="customDestinationDeviceName"
+              class="input-field hidden"
+              placeholder="목적지 장비명 직접 입력"
+            />
+
+            <label class="required">목적지 IP:</label>
+            <input
+              type="text"
+              class="input-field"
+              name="destinationIP"
+              required
+            />
+
+            <label>비고:</label>
+            <input type="text" class="input-field" name="remarks" />
+
+            <button type="button" class="button" onclick="addFields()">
+              추가
+            </button>
+          </fieldset>
+        </div>
+        <button
+          type="submit"
+          class="button"
+          style="background-color: orangered"
+        >
+          엑셀 생성
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
