@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <script>
-      function goMain() {
-        window.location.href = "main.html";
-      }
-      function goFirewall() {
-        window.location.href = "firewall-setup.html";
-      }
-    </script>
     <meta charset="UTF-8" />
     <title>XEDM 프로젝트 생성</title>
     <style>
@@ -53,8 +45,27 @@
       .button:hover {
         background-color: #45a049;
       }
+      .hidden {
+        display: none;
+      }
     </style>
-
+    <script>
+      function goMain() {
+        window.location.href = "main.html";
+      }
+      function goFirewall() {
+        window.location.href = "firewall-setup.html";
+      }
+      function toggleCustomInput(select, customInputId) {
+        var customInput = document.getElementById(customInputId);
+        if (select.value === "custom") {
+          customInput.style.display = "block";
+        } else {
+          customInput.style.display = "none";
+          customInput.value = ""; // Reset the value
+        }
+      }
+    </script>
     <button type="button" class="button" onclick="goMain()">메인 페이지</button>
 
     <button type="button" class="button" onclick="goFirewall()">
@@ -74,6 +85,13 @@
           required
         />
 
+        <label for="xedmVersion" class="required">XEDM 버전:</label>
+        <select id="xedmVersion" name="xedmVersion" class="select-field">
+          <option value="">선택</option>
+          <option value="6600">6.6.0.0</option>
+          <option value="6622">6.6.2.2</option>
+        </select>
+
         <label for="wasType" class="required">WAS 종류:</label>
         <select id="wasType" name="wasType" class="select-field">
           <option value="">선택</option>
@@ -90,32 +108,60 @@
           required
         />
 
-        <label for="wasPath">WAS 경로:</label>
+        <label for="wasPath" class="required">WAS 경로:</label>
+        <select
+          id="wasType"
+          name="wasType"
+          class="select-field"
+          onchange="toggleCustomInput(this, 'customWasPath')"
+        >
+          <option value="">선택</option>
+          <option value="default">Default 경로 (~/xedm/)</option>
+          <option value="custom">직접 입력 (절대경로)</option>
+        </select>
         <input
           type="text"
-          id="wasPath"
-          name="wasPath"
-          class="input-field"
-          placeholder="미입력 시 ~/xedm/ 경로에 생성 됩니다."
+          id="customWasPath"
+          class="input-field hidden"
+          placeholder="직접 입력하세요"
         />
 
-        <label for="logPath">로그 경로:</label>
+        <label for="logPath" class="required">로그 경로:</label>
+        <select
+          id="wasType"
+          name="wasType"
+          class="select-field"
+          onchange="toggleCustomInput(this, 'customLogPath')"
+        >
+          <option value="">선택</option>
+          <option value="default">Default 경로 (~/xedm/logs/)</option>
+          <option value="custom">직접 입력 (절대경로)</option>
+        </select>
         <input
           type="text"
-          id="logPath"
-          name="logPath"
-          class="input-field"
-          placeholder="미입력 시 : /xedm/logs/ 경로에 생성 됩니다."
+          id="customLogPath"
+          class="input-field hidden"
+          placeholder="직접 입력하세요"
         />
 
-        <label for="tempPath">임시 경로:</label>
+        <label for="tempPath" class="required">TEMP 경로:</label>
+        <select
+          id="wasType"
+          name="wasType"
+          class="select-field"
+          onchange="toggleCustomInput(this, 'customTmpPath')"
+        >
+          <option value="">선택</option>
+          <option value="default">Default 경로 (~/xedm/temp/)</option>
+          <option value="custom">직접 입력 (절대경로)</option>
+        </select>
         <input
           type="text"
-          id="tempPath"
-          name="tempPath"
-          class="input-field"
-          placeholder="미입력 시 ~/xedm/temp/ 경로에 생성 됩니다."
+          id="customTmpPath"
+          class="input-field hidden"
+          placeholder="직접 입력하세요"
         />
+
         <label for="dbmsType" class="required">DBMS 종류:</label>
         <select id="dbmsType" name="dbmsType" class="select-field">
           <option value="">선택</option>
@@ -157,7 +203,7 @@
           class="input-field"
           required
         />
-        <label for="dbPwd" class="required">DB 암호화 KEY</label>
+        <label for="dbEncKey">DB 암호화 KEY</label>
         <input
           type="text"
           id="dbEncYn"
@@ -166,7 +212,13 @@
           placeholder="미입력 시 암호화 미사용"
         />
 
-        <button type="submit" class="button">XEDM 프로젝트 생성</button>
+        <button
+          type="submit"
+          class="button"
+          style="background-color: orangered"
+        >
+          XEDM 프로젝트 생성
+        </button>
       </form>
     </div>
   </body>
