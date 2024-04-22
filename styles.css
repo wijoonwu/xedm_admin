@@ -2,7 +2,11 @@
 * {
   box-sizing: border-box;
 }
-
+.required::before {
+  content: "*";
+  color: red;
+  margin-right: 3px; /* 라벨과 별표 사이의 간격 */
+}
 /* 전체 페이지 스타일링 */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
