@@ -67,8 +67,11 @@
         var input = document.getElementById(inputId);
         if (select.value === "custom") {
           input.style.display = "block";
+          input.required = true; // 직접 입력을 선택했을 때 필수 입력으로 설정
         } else {
           input.style.display = "none";
+          input.required = false; // 필수 입력 요구 사항 제거
+          input.value = ""; // 입력 필드 초기화
         }
       }
 
@@ -90,6 +93,7 @@
       <form onsubmit="event.preventDefault(); submitForm();">
         <label for="projectName" class="required"><b>프로젝트 이름:</b></label>
         <input
+          required
           type="text"
           id="projectName"
           name="projectName"
@@ -102,6 +106,7 @@
             <legend><b>설정 정보 입력</b></legend>
             <label class="required">용도:</label>
             <select
+              required
               class="select-field"
               name="purpose"
               onchange="toggleCustomInput(this, 'customPurpose')"
@@ -122,6 +127,7 @@
 
             <label class="required">서비스명:</label>
             <select
+              required
               class="select-field"
               name="serviceName"
               onchange="toggleCustomInput(this, 'customServiceName')"
@@ -148,6 +154,7 @@
 
             <label class="required">출발지 장비명:</label>
             <select
+              required
               class="select-field"
               name="sourceDeviceName"
               onchange="toggleCustomInput(this, 'customSourceDeviceName')"
@@ -167,13 +174,19 @@
             />
 
             <label class="required">출발지 IP:</label>
-            <input type="text" class="input-field" name="sourceIP" />
+            <input type="text" class="input-field" name="sourceIP" required />
 
             <label class="required">서비스 포트:</label>
-            <input type="number" class="input-field" name="servicePort" />
+            <input
+              type="number"
+              class="input-field"
+              name="servicePort"
+              required
+            />
 
             <label class="required">목적지 장비명:</label>
             <select
+              required
               class="select-field"
               name="destinationDeviceName"
               onchange="toggleCustomInput(this, 'customDestinationDeviceName')"
@@ -186,6 +199,7 @@
               <option value="custom">직접 입력</option>
             </select>
             <input
+              required
               type="text"
               id="customDestinationDeviceName"
               class="input-field hidden"
@@ -193,7 +207,12 @@
             />
 
             <label class="required">목적지 IP:</label>
-            <input type="text" class="input-field" name="destinationIP" />
+            <input
+              type="text"
+              class="input-field"
+              name="destinationIP"
+              required
+            />
 
             <label>비고:</label>
             <input type="text" class="input-field" name="remarks" />
