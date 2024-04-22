@@ -47,7 +47,6 @@ h1 {
 
 /* 라벨의 텍스트를 위한 span */
 .form-section label span {
-  font-weight: bolder;
   width: 150px; /* 동일한 너비를 갖도록 설정 */
   text-align: center;
   margin-right: 10px;
@@ -66,6 +65,7 @@ h1 {
 }
 
 .form-section input[type="date"],
+.form-section input[type="email"],
 .form-section textarea,
 .form-section input[type="file"],
 /* 모든 인풋 필드와 버튼을 동일한 크기로 만들기 위한 설정 */
