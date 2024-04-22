@@ -101,23 +101,23 @@
         <section class="form-section">
             <h2>인프라 정보</h2>
             <div class="flex-row">
-                <label><span class="required"> WAS TYPE</span>
+                <label><span class="required"> WAS Type</span>
                 <select id="wasType" name="wasType" class="select-field">
                   <option value="">선택</option>
                   <option value="JEUS">JEUS</option>
                   <option value="TOMCAT">TOMCAT</option>
                 </select> </label
               >
-                <label><span class=""> sFTP/FTP PORT </span>
+                <label><span class=""> sFTP/FTP Port </span>
             <input class="input-field" type="number" name="ftpPort" min="1"/></label
           >
         </div>
         <div class="flex-row">
         <label
-            ><span class=""> SSH PORT</span>
+            ><span class=""> SSH Port</span>
             <input class="input-field" type="number" min="1" name="sshPort"
           /></label>
-                <label><span class=""> TELNET PORT </span>
+                <label><span class=""> Telnet Port </span>
             <input class="input-field" type="number" min="1"name="telnetPort"
           /></label>
 
@@ -138,27 +138,27 @@
         <section class="form-section">
             <h2>DB 정보</h2>
             <div class="flex-row">
-                <label><span class="required"> DBMS TYPE</span>
+                <label><span class="required"> DBMS Type</span>
             <select id="dbmsType" name="dbmsType" class="select-field">
               <option value="">선택</option>
               <option value="oracle">Oracle</option>
               <option value="postgresql">PostgreSQL</option>
-              <option value="experdb">Experdb</option>
+              <option value="experdb">eXperDB</option>
             </select> </label
           ><label
-            ><span class="required"> DB NAME </span>
+            ><span class="required"> DB Name </span>
             <input class="input-field" type="text" name="dbname"
           /></label>
             </div>
             <div class="flex-row">
-                <label><span class="required"> USERNAME</span>
+                <label><span class="required"> Username</span>
             <input class="input-field" type="text" name="dbUsername"
           /></label>
-                <label><span class="required"> PASSWORD</span>
+                <label><span class="required"> Password</span>
             <input class="input-field" type="text" name="dbPwd"
           /></label>
             </div>
-            <label><span> 암호화 KEY </span>
+            <label><span> 암호화 Key </span>
           <input class="input-field" type="text" name="dbEncKey"
         /></label>
             <label><span class="required"> DB 서버 수</span>
@@ -196,11 +196,11 @@
             <input class="input-field" type="file" name="xedmFile"
           /></label>
                 <label><span class="required"> 버전 정보</span>
-            <input class="input-field" type="text" name="xedmVersion"
+            <input class="input-field" type="text" name="xedmVersion" placeholder="6.6.0.0"
           /></label>
             </div>
             <div class="flex-row">
-                <label><span> 릴리즈 일자 </span>
+                <label><span> Release 일자 </span>
                   <input class="input-field" type="date" name="releaseDate" id="releaseDate"/>
                   </label>
                 <label><span> 정책 종류</span>
@@ -212,14 +212,14 @@
         </div>
         <div class="flex-row">
           <label
-            ><span class="required"> 로그 경로</span>
+            ><span class="required"> Log Path</span>
             <input
               class="input-field"
               type="text"
               name="logPath"
               value="~/xedm/logs/"
           /></label>
-                <label><span class="required"> WAS 설치 경로</span>
+                <label><span class="required"> XEDM 설치 경로</span>
             <input
               class="input-field"
               type="text"
@@ -228,14 +228,14 @@
           /></label>
             </div>
             <div class="flex-row">
-                <label><span class="required"> TMP 업로드 경로</span>
+                <label><span class="required"> Temp 업로드 경로</span>
             <input
               class="input-field"
               type="text"
               name="tempPath"
               value="~/xedm/temp/upload/" /></label
           ><label
-            ><span class="required"> TMP 다운로드 </span>
+            ><span class="required"> Temp 다운로드 경로 </span>
             <input
               class="input-field"
               type="text"
