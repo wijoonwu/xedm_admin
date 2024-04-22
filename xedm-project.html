@@ -244,6 +244,27 @@
             </div>
         </section>
 
+        <!-- History 정보 섹션 -->
+        <section class="form-section">
+            <h2>History</h2>
+            <table id="historyTable" class="history-table">
+                <thead>
+                    <tr>
+                        <th>작업 일시</th>
+                        <th>작업 내용</th>
+                        <th>작업자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 예시 데이터 -->
+                    <tr>
+                        <td>2024-04-22 12:33 PM</td>
+                        <td>프로젝트 생성</td>
+                        <td>위준우</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
         <!-- 버튼 -->
         <button style="background-color: green" type="button" onclick="createFirewallExcel()">
         방화벽 엑셀 생성
@@ -252,6 +273,8 @@
         <button style="background-color: orangered" type="button" onclick="saveData()">
         프로젝트 저장
       </button>
+
+
     </form>
 
     <script src="script.js"></script>
