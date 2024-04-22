@@ -4,17 +4,17 @@ document.getElementById("serverCount").addEventListener("change", function () {
   serverDetails.innerHTML = "";
   if (count === 1) {
     serverDetails.innerHTML +=
-      '<label><span> WAS IP </span> <input class="input-field" type="text" name="wasIP"></label>';
+      '<label><span class="required"> WAS IP </span> <input class="input-field" type="text" name="wasIP"></label>';
     serverDetails.innerHTML +=
-      '<label><span> Port </span> <input class="input-field" type="text" name="wasPort"></label>';
+      '<label><span class="required"> Port </span> <input class="input-field" type="text" name="wasPort"></label>';
   } else {
     serverDetails.innerHTML +=
-      '<label><span> LB IP </span> <input class="input-field" type="text" name="lbIP"></label>';
+      '<label><span class="required"> LB IP </span> <input class="input-field" type="text" name="lbIP"></label>';
     serverDetails.innerHTML +=
-      '<label><span> LB Port </span>  <input class="input-field" type="text" name="lbPort"></label>';
+      '<label><span class="required"> LB Port </span>  <input class="input-field" type="text" name="lbPort"></label>';
     for (let i = 1; i <= count; i++) {
-      serverDetails.innerHTML += `<label><span> WAS #${i} IP   </span>  <input class="input-field" type="text" name="wasIP${i}"></label>`;
-      serverDetails.innerHTML += `<label><span> WAS #${i} Port </span>  <input class="input-field" type="text" name="wasPort${i}"></label>`;
+      serverDetails.innerHTML += `<label><span class="required"> WAS #${i} IP   </span>  <input class="input-field" type="text" name="wasIP${i}"></label>`;
+      serverDetails.innerHTML += `<label><span class="required"> WAS #${i} Port </span>  <input class="input-field" type="text" name="wasPort${i}"></label>`;
     }
   }
 });
@@ -24,8 +24,8 @@ document.getElementById("dbCount").addEventListener("change", function () {
   const dbDetails = document.getElementById("dbDetails");
   dbDetails.innerHTML = "";
   for (let i = 1; i <= count; i++) {
-    dbDetails.innerHTML += `<label><span>DB #${i} IP </span>  <input class="input-field"type="text" name="dbIP${i}"></label>`;
-    dbDetails.innerHTML += `<label><span> DB #${i} Port  </span>  <input class="input-field"type="text" name="dbPort${i}"></label>`;
+    dbDetails.innerHTML += `<label><span class="required">DB #${i} IP </span>  <input class="input-field"type="text" name="dbIP${i}"></label>`;
+    dbDetails.innerHTML += `<label><span class="required"> DB #${i} Port  </span>  <input class="input-field"type="text" name="dbPort${i}"></label>`;
   }
 });
 
@@ -34,7 +34,7 @@ document.getElementById("pcCount").addEventListener("change", function () {
   const pcDetails = document.getElementById("pcDetails");
   pcDetails.innerHTML = "";
   for (let i = 1; i <= count; i++) {
-    pcDetails.innerHTML += `<label><span> PC #${i} IP  </span>  <input class="input-field" type="text" name="pcIP${i}"></label>`;
+    pcDetails.innerHTML += `<label><span class="required"> PC #${i} IP  </span>  <input class="input-field" type="text" name="pcIP${i}"></label>`;
   }
 });
 function checkName() {
