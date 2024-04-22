@@ -1,56 +1,93 @@
+/* 전체 페이지 스타일링 */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
   margin: 0;
   padding: 20px;
   color: #333;
 }
 
-h1,
-h2 {
-  color: #0056b3;
+h1 {
+  color: #0b5394;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-form {
-  background: white;
+/* 폼 섹션 스타일링 */
+.form-section {
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-section {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
-label {
+.form-section h2 {
+  color: #0b5394;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* 라벨과 인풋 필드 스타일링 */
+.form-section label {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-label span {
-  margin-right: 10px;
+.form-section label span {
+  width: 180px; /* 라벨 너비 설정 */
+  padding-right: 10px; /* 라벨과 인풋 사이의 패딩 */
+  text-align: right;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select {
-  padding: 10px;
-  border: 1px solid #ccc;
+.input-field,
+.form-section select {
+  flex: 1; /* 남은 공간 모두 채우기 */
+  padding: 8px;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  flex-grow: 1;
+  margin-left: 10px; /* 라벨과 인풋 사이의 마진 */
 }
 
-button {
-  background-color: #4caf50;
+/* 버튼 스타일링 */
+.button {
+  background-color: #0b5394;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 10px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+.button:hover {
+  background-color: #083c6b;
+}
+
+/* 버튼 옆에 있는 중복 확인 버튼 스타일 */
+form label button {
+  margin-left: 10px; /* 버튼과 인풋 사이의 마진 */
+  padding: 8px 12px; /* 버튼 패딩 */
+}
+
+/* 저장, 수정 버튼 등 하단 버튼 그룹 */
+form button {
+  margin-right: 10px; /* 버튼 간의 마진 */
+  margin-top: 20px; /* 버튼과 위 요소 사이의 마진 */
+}
+
+/* 적응형 레이아웃 */
+@media (max-width: 768px) {
+  .form-section label span {
+    width: auto;
+    text-align: left;
+    padding-right: 0;
+  }
+
+  .input-field,
+  .form-section select {
+    margin-left: 0;
+  }
 }
