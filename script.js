@@ -21,8 +21,7 @@ document.getElementById("serverCount").addEventListener("change", function() {
             serverDetails.innerHTML +=
                 `<div class="flex-row"><label><span class="required"> WAS #${i} IP </span><input class="input-field" type="text" name="wasIP${i}"></label>` +
                 `<label><span class="required"> WAS #${i} Port </span><input class="input-field" type="number" name="wasPort${i}"></label>` +
-                `<div id="sessionPortContainer${i}" class="flex-row">` +
-                `<label><span class="required"> 세션 클러스터링 포트 #${i} </span>` +
+                `<label><span class="required"> 세션 클러스터링 PORT </span>` +
                 `<input class="input-field" type="number" name="sessionClusteringPort${i}"></label></div>`;
         }
 
