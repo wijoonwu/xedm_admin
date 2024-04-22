@@ -47,6 +47,7 @@ h1 {
 
 /* 라벨의 텍스트를 위한 span */
 .form-section label span {
+  font-weight: bolder;
   width: 150px; /* 동일한 너비를 갖도록 설정 */
   text-align: center;
   margin-right: 10px;
@@ -152,3 +153,22 @@ form button:not(.button) {
     margin-bottom: 10px; /* 버튼 사이의 수직 간격 */
   }
 }
+/* 두 라벨을 한 줄에 표시하기 위한 플렉스 컨테이너 스타일 */
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 15px; 컨테이너와 다음 요소 사이의 여백 */
+}
+
+/* 플렉스 항목(라벨) 내부 요소를 위한 스타일 */
+.flex-row label {
+  flex: 1; /* 라벨이 가용 공간을 균등하게 차지하도록 설정 */
+  display: flex;
+  margin-right: 10px; /* 라벨 사이의 간격 */
+}
+
+.flex-row label:last-child {
+  margin-right: 0; /* 마지막 라벨은 오른쪽 마진을 제거 */
+}
+
+/* 기존 스타일 유지... */
