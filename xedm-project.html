@@ -22,7 +22,19 @@
                 document.getElementById('pcCount').value = 1;
                 document.getElementById('pcCount').dispatchEvent(new Event('change'));
             }
+
+            // 릴리즈 일자 기본값 설정
+            setDefaultReleaseDate();
         };
+
+        function setDefaultReleaseDate() {
+            var releaseDateInput = document.getElementById('releaseDate');
+            if (!releaseDateInput.value) {
+                var today = new Date();
+                var date = today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0');
+                releaseDateInput.value = date;
+            }
+        }
     </script>
 </head>
 
@@ -189,8 +201,8 @@
             </div>
             <div class="flex-row">
                 <label><span> 릴리즈 일자 </span>
-            <input class="input-field" type="date" name="releaseDate"
-          /></label>
+                  <input class="input-field" type="date" name="releaseDate" id="releaseDate"/>
+                  </label>
                 <label><span> 정책 종류</span>
             <select name="policyType">
               <option value="default">기본</option>
