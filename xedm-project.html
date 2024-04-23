@@ -61,14 +61,50 @@
           </button>
         </label>
 
-        <label
-          ><span> 프로젝트 위치 </span>
-          <input
-            class="input-field"
-            type="text"
-            name="location"
-            placeholder="서울특별시 영등포구 국제금융로2길 36, 8층 인젠트"
-        /></label>
+        <div class="flex-row">
+          <label
+            ><span> 프로젝트 위치 </span>
+            <input
+              class="input-field"
+              type="text"
+              name="location"
+              placeholder="서울특별시 영등포구 국제금융로2길 36, 8층 인젠트"
+          /></label>
+          <div class="use-service">
+            <label
+              ><span> 사용 서비스</span>
+              <input
+                class="input-field"
+                type="checkbox"
+                name="serviceWeb"
+                id="serviceWeb"
+              />
+              <p>Web</p>
+              <input
+                class="input-field"
+                type="checkbox"
+                name="serviceAgent"
+                id="serviceAgent"
+              />
+              <p>Agent</p>
+              <input
+                class="input-field"
+                type="checkbox"
+                name="serviceHR"
+                id="serviceHR"
+              />
+              <p>HR</p>
+              <input
+                class="input-field"
+                type="checkbox"
+                name="servicePolicy"
+                id="servicePolicy"
+              />
+              <p>정책</p>
+            </label>
+          </div>
+        </div>
+
         <div class="flex-row">
           <label
             ><span> 인젠트 영업 담당자</span>
@@ -113,25 +149,6 @@
           /></label>
         </div>
 
-        <div class="use-service">
-          <label
-            ><span> 사용 서비스</span>
-            <input type="checkbox" name="serviceWeb" id="serviceWeb" />
-            <span>Web</span>
-          </label>
-          <label>
-            <input type="checkbox" name="serviceAgent" id="serviceAgent" />
-            <span>Agent</span>
-          </label>
-          <label>
-            <input type="checkbox" name="serviceHR" id="serviceHR" />
-            <span>HR 연동</span>
-          </label>
-          <label>
-            <input type="checkbox" name="servicePolicy" id="servicePolicy" />
-            <span>통제 정책 사용</span>
-          </label>
-        </div>
         <label
           ><span> 특이사항 및 비고</span>
           <textarea class="input-field" type="" name="remarks"></textarea>
