@@ -121,39 +121,48 @@ function checkName() {
 // 업체 담당자 필드 추가 함수
 function addVendorFields() {
   var container = document.getElementById("additionalVendors");
+  var existingFields = container.children.length;
+  var newIndex = existingFields + 1; // 새로운 필드의 인덱스
 
-  // 새로운 라벨과 입력 필드를 만들기 위한 카운터
-  var newIndex = container.children.length + 1;
+  // 5개까지만 추가 가능 (0을 포함해 총 6개)
+  if (existingFields < 5) {
+    // 새로운 필드 HTML 생성
+    var newFields = `
+      <div class="flex-row" id="vendorRow${newIndex}">
+        <label><span> 프로젝트 담당자 (${newIndex})</span>
+          <input class="input-field" type="text" name="vendorName${newIndex}">
+        </label>
+        <label><span> 연락처</span>
+          <input class="input-field" type="text" name="vendorContact${newIndex}">
+        </label>
+        <label><span> 이메일</span>
+          <input class="input-field" type="email" name="vendorEmail${newIndex}">
+        </label>
+        <button type="button" class="remove-vendor-button" onclick="removeVendorFields(${newIndex})">-</button>
+      </div>`;
 
-  // 새로운 필드 HTML 생성
-  var newFields = `
-    <div class="flex-row" id="vendorRow${newIndex}">
-      <label><span> 프로젝트 담당자 (${newIndex})</span>
-        <input class="input-field" type="text" name="vendorName${newIndex}">
-      </label>
-      <label><span> 연락처</span>
-        <input class="input-field" type="text" name="vendorContact${newIndex}">
-      </label>
-      <label><span> 이메일</span>
-        <input class="input-field" type="email" name="vendorEmail${newIndex}">
-      </label>
-      <button type="button" class="remove-vendor-button" onclick="removeVendorFields(${newIndex})">-</button>
-    </div>`;
+    // 새로운 필드 HTML을 container에 추가
+    container.innerHTML += newFields;
+  }
 
-  // 새로운 필드 HTML을 container에 추가
-  container.innerHTML += newFields;
+  // '+' 버튼 활성화/비활성화 상태 관리
+  document.querySelector(".add-vendor-button").disabled = existingFields >= 4;
 }
 
 // 업체 담당자 필드 제거 함수
 function removeVendorFields(index) {
-  var elementToRemove = document.getElementById("vendorRow" + index);
-  if (elementToRemove) {
+  var container = document.getElementById("additionalVendors");
+  if (container.children.length + 1 > 1) {
+    var elementToRemove = document.getElementById("vendorRow" + index);
     elementToRemove.remove();
-  }
 
-  // 업데이트 후 인덱스 재구성
-  reindexVendorFields();
-}
+    // 업데이트 후 인덱스 재구성
+    reindexVendorFields();
+
+    // '+' 버튼을 다시 활성화 할지 여부 확인
+    document.querySelector(".add-vendor-button").disabled =
+      container.children.length >= 5;
+  } 
 
 // 필드 인덱스 재구성 함수
 function reindexVendorFields() {
@@ -166,5 +175,8 @@ function reindexVendorFields() {
       const baseName = input.name.replace(/\d+$/, "");
       input.name = baseName + (index + 1);
     });
+    row
+      .querySelector(".remove-vendor-button")
+      .setAttribute("onclick", `removeVendorFields(${index + 1})`);
   });
 }
