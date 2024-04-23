@@ -122,10 +122,10 @@ function checkName() {
 function addVendorFields() {
   var container = document.getElementById("additionalVendors");
   var existingFields = container.children.length;
-  var newIndex = existingFields + 1; // 새로운 필드의 인덱스
+  var newIndex = existingFields + 2; // 새로운 필드의 인덱스
 
-  // 5개까지만 추가 가능 (0을 포함해 총 6개)
-  if (existingFields < 5) {
+  // 5개까지만 추가 가능 (0을 포함해 총 5개)
+  if (existingFields < 4) {
     // 새로운 필드 HTML 생성
     var newFields = `
       <div class="flex-row" id="vendorRow${newIndex}">
@@ -152,7 +152,7 @@ function addVendorFields() {
 // 업체 담당자 필드 제거 함수
 function removeVendorFields(index) {
   var container = document.getElementById("additionalVendors");
-  if (container.children.length + 1 > 1) {
+  if (container.children.length >= 0) {
     var elementToRemove = document.getElementById("vendorRow" + index);
     elementToRemove.remove();
 
@@ -162,21 +162,24 @@ function removeVendorFields(index) {
     // '+' 버튼을 다시 활성화 할지 여부 확인
     document.querySelector(".add-vendor-button").disabled =
       container.children.length >= 5;
-  } 
+  } else {
+    alert("최소 한 명의 담당자 정보는 필요합니다.");
+  }
+}
 
 // 필드 인덱스 재구성 함수
 function reindexVendorFields() {
   const container = document.getElementById("additionalVendors");
   const rows = container.querySelectorAll(".flex-row");
   rows.forEach((row, index) => {
-    row.id = `vendorRow${index + 1}`;
-    row.querySelector("span").innerText = `프로젝트 담당자 (${index + 1})`;
+    row.id = `vendorRow${index + 2}`;
+    row.querySelector("span").innerText = `프로젝트 담당자 (${index + 2})`;
     row.querySelectorAll("input").forEach((input) => {
       const baseName = input.name.replace(/\d+$/, "");
-      input.name = baseName + (index + 1);
+      input.name = baseName + (index + 2);
     });
     row
       .querySelector(".remove-vendor-button")
-      .setAttribute("onclick", `removeVendorFields(${index + 1})`);
+      .setAttribute("onclick", `removeVendorFields(${index + 2})`);
   });
 }
