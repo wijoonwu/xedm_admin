@@ -128,7 +128,7 @@ function addVendorFields() {
   if (existingFields < 4) {
     // 새로운 필드 HTML 생성
     var newFields = `
-      <div class="flex-row" id="vendorRow${newIndex}">
+      <div class="flex-row added-input" id="vendorRow${newIndex}">
         <label><span> 프로젝트 담당자 (${newIndex})</span>
           <input class="input-field" type="text" name="vendorName${newIndex}">
         </label>
