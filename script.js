@@ -117,6 +117,7 @@ function checkName() {
     // confirmResult를 사용하여 추가 로직 구현
   }
 }
+
 // 업체 담당자 필드 추가 함수
 function addVendorFields() {
   var container = document.getElementById("additionalVendors");
@@ -126,22 +127,44 @@ function addVendorFields() {
 
   // 새로운 필드 HTML 생성
   var newFields = `
-    <div class="flex-row">
-      <label><span> 프로젝트 담당자 (${newIndex + 1})</span>
-        <input class="input-field" type="text" name="vendorName${newIndex + 1}">
+    <div class="flex-row" id="vendorRow${newIndex}">
+      <label><span> 프로젝트 담당자 (${newIndex})</span>
+        <input class="input-field" type="text" name="vendorName${newIndex}">
       </label>
       <label><span> 연락처</span>
-        <input class="input-field" type="text" name="vendorContact${
-          newIndex + 1
-        }">
+        <input class="input-field" type="text" name="vendorContact${newIndex}">
       </label>
       <label><span> 이메일</span>
-        <input class="input-field" type="email" name="vendorEmail${
-          newIndex + 1
-        }">
+        <input class="input-field" type="email" name="vendorEmail${newIndex}">
       </label>
+      <button type="button" class="remove-vendor-button" onclick="removeVendorFields(${newIndex})">-</button>
     </div>`;
 
   // 새로운 필드 HTML을 container에 추가
   container.innerHTML += newFields;
+}
+
+// 업체 담당자 필드 제거 함수
+function removeVendorFields(index) {
+  var elementToRemove = document.getElementById("vendorRow" + index);
+  if (elementToRemove) {
+    elementToRemove.remove();
+  }
+
+  // 업데이트 후 인덱스 재구성
+  reindexVendorFields();
+}
+
+// 필드 인덱스 재구성 함수
+function reindexVendorFields() {
+  const container = document.getElementById("additionalVendors");
+  const rows = container.querySelectorAll(".flex-row");
+  rows.forEach((row, index) => {
+    row.id = `vendorRow${index + 1}`;
+    row.querySelector("span").innerText = `프로젝트 담당자 (${index + 1})`;
+    row.querySelectorAll("input").forEach((input) => {
+      const baseName = input.name.replace(/\d+$/, "");
+      input.name = baseName + (index + 1);
+    });
+  });
 }
