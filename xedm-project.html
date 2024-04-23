@@ -49,18 +49,20 @@
       <!-- 프로젝트 정보 섹션 -->
       <section class="form-section">
         <h2>프로젝트 기본 정보</h2>
-        <label
-          ><span class="required">프로젝트 이름 </span>
-          <input
-            class="input-field"
-            type="text"
-            name="projectName"
-            required
-          /><button class="button" type="button" onclick="checkName()">
+
+        <div class="flex-row">
+          <label
+            ><span class="required"> 프로젝트 이름 </span>
+            <input
+              class="input-field"
+              type="text"
+              name="projectName"
+              required
+            /> </label
+          ><button class="button" type="button" onclick="checkName()">
             중복 확인
           </button>
-        </label>
-
+        </div>
         <div class="flex-row">
           <label
             ><span> 프로젝트 위치 </span>
