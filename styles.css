@@ -324,16 +324,16 @@ textarea {
 } */
 
 /* 새로 생성되는 인풋 바 스타일 */
-.flex-row {
+.added-input {
   display: flex;
   align-items: center;
 }
 
-.flex-row label {
+.added-input label {
   flex: 1; /* 각 라벨이 동일한 비율로 공간을 차지하도록 함 */
 }
 
-.flex-row label:not(:last-child) {
+.added-input label:not(:last-child) {
   margin-right: 10px; /* 마지막 라벨을 제외하고 오른쪽 마진 적용 */
 }
 
