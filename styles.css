@@ -263,7 +263,6 @@ textarea {
   margin: 10px;
 }
 
-/* 체크박스의 스타일을 더 세밀하게 조정할 수도 있습니다. */
 .use-service input[type="checkbox"] {
   margin-right: 5px; /* 체크박스와 텍스트 사이의 여백을 조정 */
 }
