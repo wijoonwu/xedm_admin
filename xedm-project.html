@@ -350,37 +350,18 @@
       </section>
       <!-- 버튼 -->
       <div class="fixed-footer">
-        <button
-          style="background-color: darkorchid"
-          type="button"
-          onclick="createFirewallExcel()"
-        >
+        <button type="button" onclick="downloadXEDM()">XEDM.war 생성</button>
+        <button type="button" onclick="downloadDBExcuter()">
+          DB Excuter 생성
+        </button>
+        <button type="button" onclick="createFirewallExcel()">
           방화벽 엑셀 생성
         </button>
         <button type="button" onclick="createFirewallChecker()">
           방화벽 체커 생성
         </button>
-        <button
-          type="button"
-          onclick="downloadXEDM()"
-          style="background-color: green"
-        >
-          XEDM.war 생성
-        </button>
-        <button
-          type="button"
-          style="background-color: orange"
-          onclick="downloadDBExcuter()"
-        >
-          DB Excuter 생성
-        </button>
-        <button
-          style="background-color: orangered"
-          type="button"
-          onclick="saveData()"
-        >
-          프로젝트 저장
-        </button>
+        <button type="button" onclick="copyData()">프로젝트 복사</button>
+        <button type="button" onclick="saveData()">프로젝트 저장</button>
       </div>
     </form>
 
