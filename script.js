@@ -138,7 +138,7 @@ function addVendorFields() {
         <label><span> 이메일</span>
           <input class="input-field" type="email" name="vendorEmail${newIndex}">
         </label>
-        <button type="button" class="remove-vendor-button" onclick="removeVendorFields(${newIndex})">-</button>
+        <button type="button" class="remove-vendor-button vendor-button" onclick="removeVendorFields(${newIndex})">-</button>
       </div>`;
 
     // 새로운 필드 HTML을 container에 추가
