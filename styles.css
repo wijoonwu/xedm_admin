@@ -266,3 +266,37 @@ textarea {
 .use-service input[type="checkbox"] {
   margin-right: 5px; /* 체크박스와 텍스트 사이의 여백을 조정 */
 }
+.fixed-footer button:nth-child(1) {
+  background-color: darkorchid;
+}
+
+.fixed-footer button:nth-child(2) {
+  background-color: darkblue;
+}
+
+.fixed-footer button:nth-child(3) {
+  background-color: #0b5394;
+}
+
+.fixed-footer button:nth-child(4) {
+  background-color: green;
+}
+
+.fixed-footer button:nth-child(5) {
+  background-color: orange;
+}
+
+.fixed-footer button:nth-child(6) {
+  background-color: orangered;
+}
+
+/* 버튼 텍스트 색상을 흰색으로 설정합니다. */
+.fixed-footer button {
+  color: white;
+  /* 기타 버튼 스타일링 */
+}
+
+/* 버튼 호버 효과를 설정합니다. */
+.fixed-footer button:hover {
+  opacity: 0.8;
+}
