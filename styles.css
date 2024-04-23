@@ -338,7 +338,7 @@ textarea {
 }
 
 /* '+ 버튼' 옆에 위치한 라벨만 별도로 조절 */
-/* .flex-row label.add-vendor-button-container {
+.flex-row label.add-vendor-button-container {
   flex: none;
   margin-right: 0;
-} */
+}
