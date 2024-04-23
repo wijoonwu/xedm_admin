@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>INZENT XEDM ADMIN</title>
     <link rel="stylesheet" href="styles.css" />
     <script>
-        window.onload = function() {
-            // DB 서버 수 초기화
-            if (!document.getElementById('dbCount').value) {
-                document.getElementById('dbCount').value = 1;
-                document.getElementById('dbCount').dispatchEvent(new Event('change'));
-            }
-            // WAS 서버 수 초기화
-            if (!document.getElementById('serverCount').value) {
-                document.getElementById('serverCount').value = 1;
-                document.getElementById('serverCount').dispatchEvent(new Event('change'));
-            }
-            // 호스트 수 초기화
-            if (!document.getElementById('pcCount').value) {
-                document.getElementById('pcCount').value = 1;
-                document.getElementById('pcCount').dispatchEvent(new Event('change'));
-            }
-            // 릴리즈 일자 기본값 설정
-            setDefaultReleaseDate();
-        };
-
-        function setDefaultReleaseDate() {
-            var releaseDateInput = document.getElementById('releaseDate');
-            if (!releaseDateInput.value) {
-                var today = new Date();
-                var date = today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0');
-                releaseDateInput.value = date;
-            }
+      window.onload = function () {
+        // DB 서버 수 초기화
+        if (!document.getElementById("dbCount").value) {
+          document.getElementById("dbCount").value = 1;
+          document.getElementById("dbCount").dispatchEvent(new Event("change"));
         }
-    </script>
-</head>
+        // WAS 서버 수 초기화
+        if (!document.getElementById("serverCount").value) {
+          document.getElementById("serverCount").value = 1;
+          document
+            .getElementById("serverCount")
+            .dispatchEvent(new Event("change"));
+        }
+        // 호스트 수 초기화
+        if (!document.getElementById("pcCount").value) {
+          document.getElementById("pcCount").value = 1;
+          document.getElementById("pcCount").dispatchEvent(new Event("change"));
+        }
+        // 릴리즈 일자 기본값 설정
+        setDefaultReleaseDate();
+      };
 
-<body>
+      function setDefaultReleaseDate() {
+        var releaseDateInput = document.getElementById("releaseDate");
+        if (!releaseDateInput.value) {
+          var today = new Date();
+          var date =
+            today.getFullYear() +
+            "-" +
+            (today.getMonth() + 1).toString().padStart(2, "0") +
+            "-" +
+            today.getDate().toString().padStart(2, "0");
+          releaseDateInput.value = date;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
     <h1>XEDM 프로젝트 관리</h1>
     <form id="projectInfo">
-        <!-- 프로젝트 정보 섹션 -->
-        <section class="form-section">
-            <h2>프로젝트 기본 정보</h2>
-            <label><span class="required">프로젝트 이름 </span>
+      <!-- 프로젝트 정보 섹션 -->
+      <section class="form-section">
+        <h2>프로젝트 기본 정보</h2>
+        <label
+          ><span class="required">프로젝트 이름 </span>
           <input
             class="input-field"
             type="text"
@@ -54,74 +61,92 @@
           </button>
         </label>
 
-            <label><span> 프로젝트 위치 </span>
-          <input class="input-field" type="text" name="location" placeholder="서울특별시 영등포구 국제금융로2길 36, 8층 인젠트"
+        <label
+          ><span> 프로젝트 위치 </span>
+          <input
+            class="input-field"
+            type="text"
+            name="location"
+            placeholder="서울특별시 영등포구 국제금융로2길 36, 8층 인젠트"
         /></label>
-            <div class="flex-row">
-                <label><span> 인젠트 영업 담당자</span>
+        <div class="flex-row">
+          <label
+            ><span> 인젠트 영업 담당자</span>
             <input class="input-field" type="text" name="salesAgentName"
           /></label>
-                <label><span> 인젠트 기술 담당자(정)</span>
+          <label
+            ><span> 인젠트 기술 담당자(정)</span>
             <input class="input-field" type="text" name="techAgentName1"
           /></label>
-                <label><span> 인젠트 기술 담당자(부)</span>
+          <label
+            ><span> 인젠트 기술 담당자(부)</span>
             <input class="input-field" type="text" name="techAgentName2"
           /></label>
-            </div>
-            <div class="flex-row">
-                <label><span> 업체 담당자 이름(1)</span>
-            <input class="input-field" type="text" name="vendorName1"
-          /></label>
-                <label><span> 업체 담당자 연락처(1)</span>
-            <input class="input-field" type="text" name="vendorContact1"
-          /></label>
-                <label><span> 업체 담당자 이메일(1)</span>
-            <input class="input-field" type="email" name="vendorContact1"
-          /></label>
-            </div>
-
-            <div class="flex-row">
-                <label><span> 업체 담당자 이름(2)</span>
-          <input class="input-field" type="text" name="vendorName2"
-        /></label>
-                <label><span> 업체 담당자 연락처(2)</span>
-          <input class="input-field" type="text" name="vendorContact2"
-        /></label>
-                <label><span> 업체 담당자 이메일(2)</span>
-          <input class="input-field" type="email" name="vendorContact2"
-        /></label>
-            </div>
-            <label><span> 특이사항 및 비고</span>
-          <textarea class="input-field" type="" name="remarks"></textarea>
-        </label>
-        </section>
-
-        <!-- 인프라 정보 섹션 -->
-        <section class="form-section">
-            <h2>인프라 정보</h2>
-            <div class="flex-row">
-                <label><span class="required"> WAS Type</span>
-                <select id="wasType" name="wasType" class="select-field">
-                  <option value="">선택</option>
-                  <option value="JEUS">JEUS</option>
-                  <option value="TOMCAT">TOMCAT</option>
-                </select> </label
-              >
-                <label><span class=""> sFTP/FTP Port </span>
-            <input class="input-field" type="number" name="ftpPort" min="1"/></label
-          >
         </div>
         <div class="flex-row">
+          <label
+            ><span> 업체 담당자 이름(1)</span>
+            <input class="input-field" type="text" name="vendorName1"
+          /></label>
+          <label
+            ><span> 업체 담당자 연락처(1)</span>
+            <input class="input-field" type="text" name="vendorContact1"
+          /></label>
+          <label
+            ><span> 업체 담당자 이메일(1)</span>
+            <input class="input-field" type="email" name="vendorContact1"
+          /></label>
+        </div>
+
+        <div class="flex-row">
+          <label
+            ><span> 업체 담당자 이름(2)</span>
+            <input class="input-field" type="text" name="vendorName2"
+          /></label>
+          <label
+            ><span> 업체 담당자 연락처(2)</span>
+            <input class="input-field" type="text" name="vendorContact2"
+          /></label>
+          <label
+            ><span> 업체 담당자 이메일(2)</span>
+            <input class="input-field" type="email" name="vendorContact2"
+          /></label>
+        </div>
         <label
+          ><span> 특이사항 및 비고</span>
+          <textarea class="input-field" type="" name="remarks"></textarea>
+        </label>
+      </section>
+
+      <!-- 인프라 정보 섹션 -->
+      <section class="form-section">
+        <h2>인프라 정보</h2>
+        <div class="flex-row">
+          <label
+            ><span class="required"> WAS Type</span>
+            <select id="wasType" name="wasType" class="select-field">
+              <option value="">선택</option>
+              <option value="JEUS">JEUS</option>
+              <option value="TOMCAT">TOMCAT</option>
+            </select>
+          </label>
+          <label
+            ><span class=""> sFTP/FTP Port </span>
+            <input class="input-field" type="number" name="ftpPort" min="1"
+          /></label>
+        </div>
+        <div class="flex-row">
+          <label
             ><span class=""> SSH Port</span>
             <input class="input-field" type="number" min="1" name="sshPort"
           /></label>
-                <label><span class=""> Telnet Port </span>
-            <input class="input-field" type="number" min="1"name="telnetPort"
+          <label
+            ><span class=""> Telnet Port </span>
+            <input class="input-field" type="number" min="1" name="telnetPort"
           /></label>
-
-            </div>
-            <label><span class="required"> WAS 서버 수</span>
+        </div>
+        <label
+          ><span class="required"> WAS 서버 수</span>
           <input
             class="input-field"
             type="number"
@@ -130,14 +155,15 @@
             min="1"
             max="10"
         /></label>
-            <div id="serverDetails"></div>
-        </section>
+        <div id="serverDetails"></div>
+      </section>
 
-        <!-- DB 정보 섹션 -->
-        <section class="form-section">
-            <h2>DB 정보</h2>
-            <div class="flex-row">
-                <label><span class="required"> DBMS Type</span>
+      <!-- DB 정보 섹션 -->
+      <section class="form-section">
+        <h2>DB 정보</h2>
+        <div class="flex-row">
+          <label
+            ><span class="required"> DBMS Type</span>
             <select id="dbmsType" name="dbmsType" class="select-field">
               <option value="">선택</option>
               <option value="oracle">Oracle</option>
@@ -148,19 +174,23 @@
             ><span class="required"> DB Name </span>
             <input class="input-field" type="text" name="dbname"
           /></label>
-            </div>
-            <div class="flex-row">
-                <label><span class="required"> Username</span>
+        </div>
+        <div class="flex-row">
+          <label
+            ><span class="required"> Username</span>
             <input class="input-field" type="text" name="dbUsername"
           /></label>
-                <label><span class="required"> Password</span>
+          <label
+            ><span class="required"> Password</span>
             <input class="input-field" type="text" name="dbPwd"
           /></label>
-            </div>
-            <label><span> 암호화 Key </span>
+        </div>
+        <label
+          ><span> 암호화 Key </span>
           <input class="input-field" type="text" name="dbEncKey"
         /></label>
-            <label><span class="required"> DB 서버 수</span>
+        <label
+          ><span class="required"> DB 서버 수</span>
           <input
             class="input-field"
             type="number"
@@ -169,13 +199,14 @@
             min="1"
             max="10"
         /></label>
-            <div id="dbDetails"></div>
-        </section>
+        <div id="dbDetails"></div>
+      </section>
 
-        <!-- 개발자 PC 정보 섹션 -->
-        <section class="form-section">
-            <h2>개발자 PC 정보</h2>
-            <label><span class="required"> 호스트 PC 수</span>
+      <!-- 개발자 PC 정보 섹션 -->
+      <section class="form-section">
+        <h2>개발자 PC 정보</h2>
+        <label
+          ><span class="required"> 호스트 PC 수</span>
           <input
             class="input-field"
             type="number"
@@ -184,25 +215,38 @@
             min="1"
             max="10"
         /></label>
-            <div id="pcDetails"></div>
-        </section>
+        <div id="pcDetails"></div>
+      </section>
 
-        <!-- XEDM 설정 정보 섹션 -->
-        <section class="form-section">
-            <h2>XEDM 설정 정보</h2>
-            <div class="flex-row">
-                <label><span> XEDM 업로드</span>
+      <!-- XEDM 설정 정보 섹션 -->
+      <section class="form-section">
+        <h2>XEDM 설정 정보</h2>
+        <div class="flex-row">
+          <label
+            ><span> XEDM 업로드</span>
             <input class="input-field" type="file" name="xedmFile"
           /></label>
-                <label><span class="required"> 버전 정보</span>
-            <input class="input-field" type="text" name="xedmVersion" placeholder="6.6.0.0"
+          <label
+            ><span class="required"> 버전 정보</span>
+            <input
+              class="input-field"
+              type="text"
+              name="xedmVersion"
+              placeholder="6.6.0.0"
           /></label>
-            </div>
-            <div class="flex-row">
-                <label><span> Release 일자 </span>
-                  <input class="input-field" type="date" name="releaseDate" id="releaseDate"/>
-                  </label>
-                <label><span> 정책 종류</span>
+        </div>
+        <div class="flex-row">
+          <label
+            ><span> Release 일자 </span>
+            <input
+              class="input-field"
+              type="date"
+              name="releaseDate"
+              id="releaseDate"
+            />
+          </label>
+          <label
+            ><span> 정책 종류</span>
             <select name="policyType">
               <option value="default">기본</option>
               <option value="controlled">통제</option>
@@ -218,16 +262,18 @@
               name="logPath"
               value="~/xedm/logs/"
           /></label>
-                <label><span class="required"> XEDM 설치 경로</span>
+          <label
+            ><span class="required"> XEDM 설치 경로</span>
             <input
               class="input-field"
               type="text"
               name="installPath"
               value="~/xedm/"
           /></label>
-            </div>
-            <div class="flex-row">
-                <label><span class="required"> Temp 업로드 경로</span>
+        </div>
+        <div class="flex-row">
+          <label
+            ><span class="required"> Temp 업로드 경로</span>
             <input
               class="input-field"
               type="text"
@@ -241,43 +287,55 @@
               name="tempPath"
               value="~/xedm/temp/download/"
           /></label>
-            </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- History 정보 섹션 -->
-        <section class="form-section">
-            <h2>History</h2>
-            <table id="historyTable" class="history-table">
-                <thead>
-                    <tr>
-                        <th>작업 일시</th>
-                        <th>작업 내용</th>
-                        <th>작업자</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 예시 데이터 -->
-                    <tr>
-                        <td>2024-04-22 12:33 PM</td>
-                        <td>프로젝트 생성</td>
-                        <td>위준우</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <!-- 버튼 -->
-        <button style="background-color: green" type="button" onclick="createFirewallExcel()">
+      <!-- History 정보 섹션 -->
+      <section class="form-section">
+        <h2>History</h2>
+        <table id="historyTable" class="history-table">
+          <thead>
+            <tr>
+              <th>작업 일시</th>
+              <th>작업 내용</th>
+              <th>작업자</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 예시 데이터 -->
+            <tr>
+              <td>2024-04-22 12:33 PM</td>
+              <td>프로젝트 생성</td>
+              <td>위준우</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <!-- 버튼 -->
+      <button
+        style="background-color: green"
+        type="button"
+        onclick="createFirewallExcel()"
+      >
         방화벽 엑셀 생성
       </button>
-        <button type="button" onclick="downloadXEDM()">XEDM 파일 생성</button>
-        <button style="background-color: orangered" type="button" onclick="saveData()">
+      <button
+        style="background-color: orange"
+        type="button"
+        onclick="createFirewallChecker()"
+      >
+        방화벽 체커 생성
+      </button>
+      <button type="button" onclick="downloadXEDM()">XEDM 파일 생성</button>
+      <button
+        style="background-color: orangered"
+        type="button"
+        onclick="saveData()"
+      >
         프로젝트 저장
       </button>
-
-
     </form>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
