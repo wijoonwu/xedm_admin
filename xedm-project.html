@@ -332,28 +332,39 @@
         </table>
       </section>
       <!-- 버튼 -->
-      <button
-        style="background-color: green"
-        type="button"
-        onclick="createFirewallExcel()"
-      >
-        방화벽 엑셀 생성
-      </button>
-      <button
-        style="background-color: orange"
-        type="button"
-        onclick="createFirewallChecker()"
-      >
-        방화벽 체커 생성
-      </button>
-      <button type="button" onclick="downloadXEDM()">XEDM 파일 생성</button>
-      <button
-        style="background-color: orangered"
-        type="button"
-        onclick="saveData()"
-      >
-        프로젝트 저장
-      </button>
+      <div class="fixed-footer">
+        <button
+          style="background-color: darkorchid"
+          type="button"
+          onclick="createFirewallExcel()"
+        >
+          방화벽 엑셀 생성
+        </button>
+        <button type="button" onclick="createFirewallChecker()">
+          방화벽 체커 생성
+        </button>
+        <button
+          type="button"
+          onclick="downloadXEDM()"
+          style="background-color: green"
+        >
+          XEDM.war 생성
+        </button>
+        <button
+          type="button"
+          style="background-color: orange"
+          onclick="downloadDBExcuter()"
+        >
+          DB Excuter 생성
+        </button>
+        <button
+          style="background-color: orangered"
+          type="button"
+          onclick="saveData()"
+        >
+          프로젝트 저장
+        </button>
+      </div>
     </form>
 
     <script src="script.js"></script>
