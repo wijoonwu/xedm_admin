@@ -107,47 +107,40 @@
 
         <div class="flex-row">
           <label
-            ><span> 인젠트 영업 담당자</span>
+            ><span>인젠트 영업 담당자</span>
             <input class="input-field" type="text" name="salesAgentName"
           /></label>
           <label
-            ><span> 인젠트 기술 담당자(정)</span>
+            ><span> 기술 담당자 (정)</span>
             <input class="input-field" type="text" name="techAgentName1"
           /></label>
           <label
-            ><span> 인젠트 기술 담당자(부)</span>
+            ><span> 기술 담당자 (부)</span>
             <input class="input-field" type="text" name="techAgentName2"
           /></label>
         </div>
         <div class="flex-row">
           <label
-            ><span> 업체 담당자 이름(1)</span>
-            <input class="input-field" type="text" name="vendorName1"
+            ><span> 프로젝트 담당자 (1) </span>
+            <input class="input-field" type="text" name="vendorName"
           /></label>
           <label
-            ><span> 업체 담당자 연락처(1)</span>
-            <input class="input-field" type="text" name="vendorContact1"
+            ><span> 연락처</span>
+            <input class="input-field" type="text" name="vendorContact"
           /></label>
           <label
-            ><span> 업체 담당자 이메일(1)</span>
-            <input class="input-field" type="email" name="vendorContact1"
+            ><span> 이메일</span>
+            <input class="input-field" type="email" name="vendorContact"
           /></label>
+          <button
+            type="button"
+            class="add-vendor-button"
+            onclick="addVendorFields()"
+          >
+            +
+          </button>
         </div>
-
-        <div class="flex-row">
-          <label
-            ><span> 업체 담당자 이름(2)</span>
-            <input class="input-field" type="text" name="vendorName2"
-          /></label>
-          <label
-            ><span> 업체 담당자 연락처(2)</span>
-            <input class="input-field" type="text" name="vendorContact2"
-          /></label>
-          <label
-            ><span> 업체 담당자 이메일(2)</span>
-            <input class="input-field" type="email" name="vendorContact2"
-          /></label>
-        </div>
+        <div id="additionalVendors"></div>
 
         <label
           ><span> 특이사항 및 비고</span>
