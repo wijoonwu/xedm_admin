@@ -302,10 +302,11 @@ textarea {
 }
 
 /* 추가 버튼 스타일 */
-.add-vendor-button {
+.add-vendor-button,
+.remove-vendor-button,
+.vendor-button {
   padding: 4px 8px;
   margin-left: 10px;
-  font-size: 16px;
   color: #fff;
   background-color: #007bff;
   border: none;
@@ -335,4 +336,19 @@ textarea {
 .flex-row label.add-vendor-button-container {
   flex: none;
   margin-right: 0;
+}
+
+.vendor-button {
+  padding: 8px 8px; /* 버튼 패딩 */
+  width: 30px; /* 버튼 너비 */
+  height: 30px; /* 버튼 높이 */
+  border: 1px solid #ddd; /* 버튼 테두리 */
+  background-color: #f9f9f9; /* 버튼 배경색 */
+  color: #333; /* 버튼 텍스트 색상 */
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
