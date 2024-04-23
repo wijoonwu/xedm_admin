@@ -302,8 +302,8 @@ textarea {
 }
 
 /* 추가 버튼 스타일 */
-/* .add-vendor-button {
-  padding: 8px 15px;
+.add-vendor-button {
+  padding: 4px 8px;
   margin-left: 10px;
   font-size: 16px;
   color: #fff;
@@ -315,13 +315,7 @@ textarea {
 
 .add-vendor-button:hover {
   background-color: #0056b3;
-} */
-
-/* '+' 버튼의 크기 조절 */
-/* .add-vendor-button {
-  padding: 4px 8px; 
-  font-size: 14px; 
-} */
+}
 
 /* 새로 생성되는 인풋 바 스타일 */
 .added-input {
