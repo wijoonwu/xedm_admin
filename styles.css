@@ -183,6 +183,7 @@ form button:not(.button) {
 .flex-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* 플렉스 항목(라벨) 내부 요소를 위한 스타일 */
@@ -351,4 +352,18 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-row label {
+  flex: 1; /* 모든 라벨이 같은 비율로 공간 차지 */
+  margin-right: 10px; /* 라벨 사이의 간격을 설정 */
+}
+
+.flex-row label:last-child {
+  margin-right: 0; /* 마지막 라벨은 마진이 없도록 */
 }
