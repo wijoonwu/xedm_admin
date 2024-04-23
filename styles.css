@@ -300,8 +300,9 @@ textarea {
 .fixed-footer button:hover {
   opacity: 0.8;
 }
+
 /* 추가 버튼 스타일 */
-.add-vendor-button {
+/* .add-vendor-button {
   padding: 8px 15px;
   margin-left: 10px;
   font-size: 16px;
@@ -314,13 +315,13 @@ textarea {
 
 .add-vendor-button:hover {
   background-color: #0056b3;
-}
+} */
 
 /* '+' 버튼의 크기 조절 */
-.add-vendor-button {
-  padding: 4px 8px; /* 버튼의 패딩을 줄여 크기를 작게 조정 */
-  font-size: 14px; /* 아이콘 텍스트 크기를 줄임 */
-}
+/* .add-vendor-button {
+  padding: 4px 8px; 
+  font-size: 14px; 
+} */
 
 /* 새로 생성되는 인풋 바 스타일 */
 .flex-row {
@@ -337,7 +338,7 @@ textarea {
 }
 
 /* '+ 버튼' 옆에 위치한 라벨만 별도로 조절 */
-.flex-row label.add-vendor-button-container {
-  flex: none; /* '+ 버튼' 라벨이 가변적인 너비를 갖지 않도록 함 */
-  margin-right: 0; /* 오른쪽 마진 제거 */
-}
+/* .flex-row label.add-vendor-button-container {
+  flex: none;
+  margin-right: 0;
+} */
