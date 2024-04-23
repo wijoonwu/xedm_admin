@@ -100,7 +100,7 @@ h1 {
 /* 버튼 스타일링 */
 
 .button {
-  background-color: darkcyan;
+  background-color: #0b5394;
   color: white;
   border: none;
   border-radius: 4px;
@@ -245,7 +245,7 @@ textarea {
 }
 /* 기존의 레이아웃 스타일을 유지하면서 flex 속성값을 조정 */
 .flex-row label {
-  flex: 2; /* 프로젝트 위치가 차지하는 공간 */
+  flex: 1; /* 프로젝트 위치가 차지하는 공간 */
 }
 
 .use-service {
@@ -351,18 +351,4 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.flex-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.flex-row label {
-  flex: 1; /* 모든 라벨이 같은 비율로 공간 차지 */
-  margin-right: 10px; /* 라벨 사이의 간격을 설정 */
-}
-
-.flex-row label:last-child {
-  margin-right: 0; /* 마지막 라벨은 마진이 없도록 */
 }
