@@ -244,27 +244,30 @@ textarea {
   padding: 8px 15px;
 }
 /* 기존의 레이아웃 스타일을 유지하면서 flex 속성값을 조정 */
-.flex-row label {
-  flex: 1; /* 프로젝트 위치가 차지하는 공간 */
-}
-
+/* 프로젝트 위치가 차지하는 공간 */
+/* .flex-row label {
+  flex: 1.8;
+} */
 .use-service {
   display: flex;
-  flex: 1; /* 사용 서비스가 차지하는 공간 */
-  align-items: center; /* 세로 중앙 정렬을 추가 */
-  flex-wrap: wrap; /* 필요한 경우 줄바꿈을 할 수 있도록 설정 */
+  /* 사용 서비스가 차지하는 공간 */
+  /* flex: 1; */
+  /* 세로 중앙 정렬을 추가 */
+  align-items: center;
+  /* 필요한 경우 줄바꿈을 할 수 있도록 설정 */
+  flex-wrap: wrap;
 }
-
+/* 체크박스와 서비스 이름 사이의 여백을 조정 */
 .use-service label {
-  margin-right: 20px; /* 체크박스와 서비스 이름 사이의 여백을 조정 */
+  margin-right: 20px;
 }
 
 .use-service p {
   margin: 10px;
 }
-
+/* 체크박스와 텍스트 사이의 여백을 조정 */
 .use-service input[type="checkbox"] {
-  margin-right: 5px; /* 체크박스와 텍스트 사이의 여백을 조정 */
+  margin-right: 1px;
 }
 .fixed-footer button:nth-child(1) {
   background-color: darkorchid;
